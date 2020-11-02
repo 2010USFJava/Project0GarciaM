@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
 import com.revature.util.AccountList;
+import com.revature.util.JointAccount;
 import com.revature.util.LogThis;
 import com.revature.util.UserAccount;
 import com.revature.service.Transaction;
+import com.revature.util.JointAccount;
 
 public class Menu {
 	
@@ -59,10 +61,17 @@ public class Menu {
 			isEmployee = true;
 		else
 			isEmployee = false;
-		
-		UserAccount a = new UserAccount(userEmail,password,name,address,phone, isEmployee);
+		System.out.println("Will this be a joint account? (y/n)");
+		String jAccount = scan.nextLine();
+	
+		if (jAccount.equalsIgnoreCase("y")) {
+//			JointAccount b = new JointAccount("Jack");
+		}
+		else {
+			UserAccount a = new UserAccount(userEmail,password,name,address,phone, isEmployee);
 		LogThis.LogIt("info",a.getUserName() + " account was created!");
 		System.out.println(AccountList.userList.toString());
+		}
 		
 		System.out.println("Would you like to make a new account? (y/n)");
 		String choice = scan.nextLine();
@@ -73,29 +82,33 @@ public class Menu {
 			startMenu();
 		}
 		else {
-			System.out.println(" You are going back to the main menu");
-//			startMenu();
+			System.out.println("You are going back to the main menu");
+			startMenu();
 			
 	}
 	}
 	
 	public static void loginMenu(){
-////		System.out.println("Enter the email address on account");
-////		String email = scan.nextLine();
-////		UserAccount a = Accountlist.find(Email);
-////		System.out.println("Enter your password");
-////		String Password = scan.nextLine();
-////		Warrior b = Roster.findWarriorByName(second);
-////		
-////		System.out.println("LET THE BATTLE BEGIN!!");
-////		Fight fight = new Fight();
-////		fight.fightTime(a, b);
-////		LogThis.LogIt("info", a.getName() + " just punched " + b.getName() + " and it cost them " + a.getAttackPower()
-////		+ " points of damage. ");
-////		System.out.println(b.getName() + " HP is now " + b.getHp());
-////		startMenu();
-////				
-//		
+		System.out.println("Enter the email address on account");
+		String email = scan.nextLine();
+		UserAccount a = AccountList.findAccountByEmail(email);
+		System.out.println("Enter your password");
+		String password = scan.nextLine();
+		UserAccount b = AccountList.findAccountByPassword(password);
+		
+		if(a.equals(b)) {
+			System.out.println("Login Successful!");
+			LogThis.LogIt("info", "Login Successful for" + a.getUserEmail());
+		}
+		else {
+			System.out.println("Login Failed");
+			LogThis.LogIt("info", "Login Failed for" + a.getUserEmail());
+		}
+		
+		
+		startMenu();
+				
+		
 		
 	}
 	

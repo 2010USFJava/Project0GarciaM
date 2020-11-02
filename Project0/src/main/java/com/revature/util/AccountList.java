@@ -9,12 +9,23 @@ public class AccountList {
 	
 	public static List<UserAccount> userList = new ArrayList<UserAccount>();
 	
-	public static UserAccount findAccountByName(String inputName) {
+	public static UserAccount findAccountByEmail(String inputName) {
 		for (int i = 0; i < userList.size(); i++) {
 				String name = userList.get(i).getUserName();
 					return userList.get(i);
 		}
 		System.out.println("User not found");
+		Menu.startMenu();
+		return null;
+		 
+	}
+	
+	public static UserAccount findAccountByPassword(String inputName) {
+		for (int i = 0; i < userList.size(); i++) {
+				String name = userList.get(i).getUserName();
+					return userList.get(i);
+		}
+		System.out.println("Password not found");
 		Menu.startMenu();
 		return null;
 		 
