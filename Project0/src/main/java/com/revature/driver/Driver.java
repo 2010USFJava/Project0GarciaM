@@ -20,6 +20,7 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		uList = AccountList.userList;
+		
 		//Call main menu
 		Menu.startMenu();
 		

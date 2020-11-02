@@ -98,11 +98,11 @@ public class Menu {
 		
 		if(a.equals(b)) {
 			System.out.println("Login Successful!");
-			LogThis.LogIt("info", "Login Successful for" + a.getUserEmail());
+			LogThis.LogIt("info", "Login Successful for " + a.getUserEmail());
 		}
 		else {
 			System.out.println("Login Failed");
-			LogThis.LogIt("info", "Login Failed for" + a.getUserEmail());
+			LogThis.LogIt("info", "Login Failed for " + a.getUserEmail());
 		}
 		
 		
