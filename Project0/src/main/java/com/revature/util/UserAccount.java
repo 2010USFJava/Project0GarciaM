@@ -14,6 +14,7 @@ public class UserAccount implements Serializable{
 	private String userAddress;
 	private String userPhone;
 	private boolean isEmployee;
+	private boolean jointAccount;
 	
 	public UserAccount() {
 		super();
@@ -23,8 +24,9 @@ public class UserAccount implements Serializable{
 		LogThis.LogIt("info", "A new user account created");
 		
 	}
-
-	public UserAccount(String userEmail, String userPassword, String userName, String userAddress, String userPhone, boolean isEmployee) {
+	
+	public UserAccount(String userEmail, String userPassword, String userName, String userAddress, String userPhone,
+			boolean isEmployee, boolean jointAccount) {
 		super();
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
@@ -32,10 +34,23 @@ public class UserAccount implements Serializable{
 		this.userAddress = userAddress;
 		this.userPhone = userPhone;
 		this.isEmployee = isEmployee;
+		this.jointAccount = jointAccount;
 		AccountList.userList.add(this);
 		FileUse.writeUserFile(AccountList.userList);
 		LogThis.LogIt("info", "A new user account created for" + this.getUserName());
 	}
+
+	public boolean isJointAccount() {
+		return jointAccount;
+	}
+
+	public void setJointAccount(boolean jointAccount) {
+		this.jointAccount = jointAccount;
+	}
+
+	
+
+
 
 	public String getUserEmail() {
 		return userEmail;
@@ -89,8 +104,11 @@ public class UserAccount implements Serializable{
 	@Override
 	public String toString() {
 		return "UserAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
-				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + "]";
+				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + ", isEmployee=" + isEmployee
+				+ ", jointAccount=" + jointAccount + "]";
 	}
+
+	
 	
 	
 	
