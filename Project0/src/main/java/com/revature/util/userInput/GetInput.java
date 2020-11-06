@@ -13,7 +13,7 @@ public class GetInput {
 
 	public static void UserAccountInput() {
 		boolean isEmployee = false;
-		int EmployeeNumber;
+		int employeeNumber= 0;
 		boolean isJointAccount = false;
 		boolean validEmail = false;
 		boolean validPhone = false;
@@ -58,9 +58,9 @@ public class GetInput {
 		if (isEMP.equalsIgnoreCase("y") && userEmail.contains("revature")) {
 			isEmployee = true;
 			System.out.println("Please enter employee number");
-			EmployeeNumber = scan.nextInt();
+			employeeNumber = Integer.parseInt(scan.nextLine());
 		}
-		else {
+		else if (isEmployee == false) {
 			isEmployee = false;
 			System.out.println("Your email is not an employee email, \n customer account will be created");
 		}
@@ -79,15 +79,18 @@ public class GetInput {
 			System.out.println("Your application has been accepted please wait for aprovall");
 		
 		}
-		else {
-			UserAccount a = new EmployeeUser(userEmail,password,name,address,phone,isEmployee,isJointAccount,1234);
-			LogThis.LogIt("info",a.getUserName() + " employee account was created!");
+		else  if  (isEmployee == true) {
+			UserAccount a = new EmployeeUser(userEmail,password,name,address,phone,isEmployee,isJointAccount,employeeNumber);
+			LogThis.LogIt("info",a.getUserName() + " employee account was created! ");
+			System.out.println("Employee Account Created" + "employee number: " + employeeNumber);
 			System.out.println(a); //check to test valid input remove later
-			System.out.println("Employee Account Created");
+			
 			
 		}
 	}
 	
+	
+
 	public static void InputLogin() {
 		System.out.println("Enter the email address on account");
 		String email = scan.nextLine();

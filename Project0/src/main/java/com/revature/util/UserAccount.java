@@ -8,13 +8,14 @@ public class UserAccount implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8928222056777250302L;
-	private String userEmail;
-	private String userPassword;
-	private String userName;
-	private String userAddress;
-	private String userPhone;
-	private boolean isEmployee;
-	private boolean jointAccount;
+	protected String userEmail;
+	protected String userPassword;
+	protected String userName;
+	protected String userAddress;
+	protected String userPhone;
+	protected boolean isEmployee;
+	protected boolean jointAccount;
+	//protected int EmployeeNumber = (Integer) null;
 	
 	public UserAccount() {
 		super();

@@ -6,20 +6,36 @@ public class EmployeeUser extends UserAccount {
 	 * 
 	 */
 	private static final long serialVersionUID = -4142330159889259742L;
-
-	
-	private static int EmployeeNumber;
+	protected int employeeNumber;
 	
 	public EmployeeUser() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public EmployeeUser(String userEmail, String userPassword, String userName, String userAddress, String userPhone,
-			boolean isEmployee, boolean jointAccount, int EmployeeNumber ) {
+			boolean isEmployee, boolean jointAccount, int employeeNumber ) {
 		super(userEmail, userPassword, userName, userAddress, userPhone, isEmployee, jointAccount);
+		this.employeeNumber = employeeNumber;
 		
-		// TODO Auto-generated constructor stub
+		
+
+	}
+
+	@Override
+	public String toString() {
+
+		return  "UserAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
+				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + ", isEmployee=" + isEmployee
+				+ ", jointAccount=" + jointAccount  + "EmployeeNumber"+ employeeNumber + "]";
+	}
+
+	public int getemployeeNumber() {
+		return employeeNumber;
+	}
+
+	public  void setemployeeNumber(int employeeNumber) {
+		this.employeeNumber = employeeNumber;
 	}
 
 	
