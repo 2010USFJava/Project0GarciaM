@@ -10,9 +10,9 @@ public class BankData {
 	
 public static List<BankAccount> BankList = new ArrayList<BankAccount>();
 	
-	public static BankAccount findAccountByName(String inputName) {
+	public static BankAccount findAccountByAccountNumber(String inputName) {
 		for (int i = 0; i < BankList.size(); i++) {
-				String name = BankList.get(i).getOwnerName();
+				int accountNumber = BankList.get(i).getAccountNumber();
 					return BankList.get(i);
 		}
 		System.out.println("Account not found");
@@ -20,5 +20,19 @@ public static List<BankAccount> BankList = new ArrayList<BankAccount>();
 		return null;
 		 
 	}
-
+	
+	public static BankAccount findAccountByAccountName(String inputName) {
+		for (int i = 0; i < BankList.size(); i++) {
+				String accountName = BankList.get(i).getOwnerName();
+					return BankList.get(i);
+		}
+		System.out.println("Account not found");
+		Menu.startMenu();
+		return null;
+		 
+	}
+	
+		 
 }
+	
+

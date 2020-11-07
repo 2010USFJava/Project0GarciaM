@@ -9,17 +9,20 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.revature.util.AccountList;
+import com.revature.beans.CustomerAccount;
+import com.revature.beans.EmployeeUser;
+import com.revature.util.CustomerList;
 
 public class FileUse {
 	
-	public static final String UserFile ="userFileList.txt";
+	public static final String CustomerFile ="CustomerList.txt";
 	public static final String BankFile = "BankingFiles.txt";
+	public static final String EmployeeFile = "EmployeeList.txt";
 	
 	//write User method
-	public static void writeUserFile(List<UserAccount> UList) {
+	public static void writeCustomerFile(List<CustomerAccount> UList) {
 		try {
-			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(UserFile));
+			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(CustomerFile));
 			objectOut.writeObject(UList);
 			objectOut.close();
 		} catch (FileNotFoundException e) {
@@ -32,7 +35,7 @@ public class FileUse {
 	}
 	
 	//write bank account method
-	public static void writeBankFile(List<UserAccount> bList) {
+	public static void writeBankFile(List<CustomerAccount> bList) {
 		try {
 			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(BankFile));
 			objectOut.writeObject(bList);
@@ -46,11 +49,26 @@ public class FileUse {
 		}
 	}
 	
-	//read User method
-	public static void readUserFile() {
+	//write employee method
+	public static void writeEmployeeFile(List<EmployeeUser> eList) {
 		try {
-			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(UserFile));
-			AccountList.userList = (ArrayList<UserAccount>)objectIn.readObject();
+			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(EmployeeFile));
+			objectOut.writeObject(eList);
+			objectOut.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//read Customer method
+	public static void readCustomerFile() {
+		try {
+			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(CustomerFile));
+			CustomerList.userList = (ArrayList<CustomerAccount>)objectIn.readObject();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,21 +82,39 @@ public class FileUse {
 		
 	}
 	
+	//read Employee method
+		public static void readEmployeeFile() {
+			try {
+				ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(EmployeeFile));
+				CustomerList.userList = (ArrayList<CustomerAccount>)objectIn.readObject();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	
 	//read Bank account method
-//	public static void readBankFile() {
-//		try {
-//			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(BankFile));
-//			//AccountList.userList = (ArrayList<UserAccount>)objectIn.readObject();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//	}
+	public static void readBankFile() {
+		try {
+			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(BankFile));
+			EmployeeList.empList = (ArrayList<EmployeeUser>)objectIn.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

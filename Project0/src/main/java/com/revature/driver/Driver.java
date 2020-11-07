@@ -3,23 +3,26 @@ package com.revature.driver;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.revature.beans.BankAccount;
+import com.revature.beans.CustomerAccount;
+import com.revature.beans.EmployeeUser;
 import com.revature.menu.Menu;
-import com.revature.util.AccountList;
+import com.revature.util.CustomerList;
 import com.revature.util.FileUse;
-import com.revature.util.UserAccount;
 
 public class Driver {
 
 	private static int counter;
 	
-	static {FileUse.readUserFile();}
+	static {FileUse.readCustomerFile();}
 	
-	public static List<UserAccount> uList = new ArrayList<UserAccount>();
+	protected static List<CustomerAccount> uList = new ArrayList<CustomerAccount>();
+	protected static List<EmployeeUser> empList = new ArrayList<EmployeeUser>();
+	protected static List<BankAccount> bankList = new ArrayList<BankAccount>();
 	
 	
 	public static void main(String[] args) {
-		uList = AccountList.userList;
+		uList = CustomerList.userList;
 		
 		//Call main menu
 		Menu.startMenu();
@@ -27,9 +30,21 @@ public class Driver {
 		System.out.println();
 		
 		
-		
-	for (UserAccount l: uList ) {
-			System.out.println(l);
+	//print customer list
+		System.out.println("customer list");
+	for (CustomerAccount lc: uList ) {
+			System.out.println(lc);
 	}
+	//print employee list
+			System.out.println("employee list");
+	for (EmployeeUser le: empList ) {
+		System.out.println(le);
+}
+	//print Bank account list
+//			System.out.println("bank account list");
+//	for (BankAccount lb: bankList ) {
+//		System.out.println(lb);
+//}
+	
 	}
 }

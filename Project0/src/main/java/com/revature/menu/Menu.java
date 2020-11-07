@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 
 import com.revature.beans.BankAccount;
-import com.revature.util.AccountList;
+import com.revature.beans.CustomerAccount;
+import com.revature.util.CustomerList;
 import com.revature.util.LogThis;
-import com.revature.util.UserAccount;
 import com.revature.service.Transaction;
 import com.revature.util.userInput.GetInput;
 

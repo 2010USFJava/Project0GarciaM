@@ -3,13 +3,14 @@ package com.revature.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.beans.CustomerAccount;
 import com.revature.menu.Menu;
 
-public class AccountList {
+public class CustomerList {
 	
-	public static List<UserAccount> userList = new ArrayList<UserAccount>();
+	public static List<CustomerAccount> userList = new ArrayList<CustomerAccount>();
 	
-	public static UserAccount findAccountByEmail(String inputName) {
+	public static CustomerAccount findAccountByEmail(String inputName) {
 		for (int i = 0; i < userList.size(); i++) {
 			String name= userList.get(i).getUserEmail();
 			if(inputName.equals(name)) {
@@ -23,7 +24,7 @@ public class AccountList {
 	
 }
 	
-	public static UserAccount findAccountByPassword(String inputName) {
+	public static CustomerAccount findAccountByPassword(String inputName) {
 		for (int i = 0; i < userList.size(); i++) {
 				String name = userList.get(i).getUserPassword();
 				if(inputName.equals(name))
