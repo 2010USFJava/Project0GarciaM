@@ -57,14 +57,19 @@ public class TransacService {
 		int transferAccount = Integer.parseInt(scan.nextLine());
 		System.out.println("How much would you like to transfer?");
 		int transferAmount = Integer.parseInt(scan.nextLine());
-		int newBalance = GetInput.currentBankAccount.getAccountBalance() - transferAmount;
-		LogThis.LogIt("info","A transfer has been initiated balanced reduced" + transferAmount+ "from account" + GetInput.currentBankAccount.getAccountNumber());
-		BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
-		BankAccount t = BankData.findAccountByAccountNumber(transferAccount);
-		BankData.findAccountByAccountNumber(transferAccount).setAccountBalance(t.getAccountBalance()+transferAmount);
-		FileUse.writeBankFile(BankData.bankList);
-		LogThis.LogIt("info","A transfer has been competed balanced reduced" + transferAmount+ "on account" + t.getAccountNumber());
-		
+		if (InputValidation.ValidateValue(transferAmount) && InputValidation.OverdrawCheck(transferAmount)) {
+			int newBalance = GetInput.currentBankAccount.getAccountBalance() - transferAmount;
+			LogThis.LogIt("info","A transfer has been initiated balanced reduced " + transferAmount+ "from account " + GetInput.currentBankAccount.getAccountNumber());
+			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
+			BankAccount t = BankData.findAccountByAccountNumber(transferAccount);
+			BankData.findAccountByAccountNumber(transferAccount).setAccountBalance(t.getAccountBalance()+transferAmount);
+			FileUse.writeBankFile(BankData.bankList);
+			LogThis.LogIt("info","A transfer has been competed balanced sent " + transferAmount+ "to account " + t.getAccountNumber());
+		}
+		else {
+			System.out.println("The value entered is not valid or will overdraw account please try again");
+			transferAccount();
+		}
 		
 	}
 	
@@ -86,15 +91,17 @@ public class TransacService {
 		}
 	
 	public static int getHighest() {
-		int highestAccount = 1000;
+		int highestAccount = 0;
 		for (BankAccount lb: BankData.bankList ) {
 			for (BankAccount lc: BankData.bankList  ) {
 				if(lb.getAccountNumber() > lc.getAccountNumber())
-					highestAccount = lb.getAccountNumber();	
+					highestAccount = lb.getAccountNumber();
+				else
+					highestAccount = lc.getAccountNumber();
 			}
 		}		//increments the account number to next highest
 		highestAccount++;
-		System.out.println("Highest account found");
+
 		
 		
 

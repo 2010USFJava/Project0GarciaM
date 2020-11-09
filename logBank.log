@@ -99,3 +99,52 @@
 [INFO ] 2020-11-08 21:43:03.703 [main] LogThis - Gem Fisher account was created!
 [INFO ] 2020-11-08 21:43:42.029 [main] LogThis - A new bank account created for Gem FisherAccountNum: 1001
 [INFO ] 2020-11-08 21:43:42.031 [main] LogThis - Account Number changed for customer Gem Fisher
+[INFO ] 2020-11-08 21:49:33.822 [main] LogThis - A new user account created for Ken jacob
+[INFO ] 2020-11-08 21:49:33.825 [main] LogThis - Ken jacob account was created!
+[INFO ] 2020-11-08 21:49:47.491 [main] LogThis - Login Successful for kjake@gmail.com
+[INFO ] 2020-11-08 21:50:16.961 [main] LogThis - A new bank account created for Ken jacobAccountNum: 1002
+[INFO ] 2020-11-08 21:50:16.968 [main] LogThis - Account Number changed for customer Ken jacob
+[INFO ] 2020-11-08 21:51:07.130 [main] LogThis - Account deleted in both customer and bank account1001
+[INFO ] 2020-11-08 21:51:58.215 [main] LogThis - A transfer has been initiated balanced reduced100from account1001
+[INFO ] 2020-11-08 21:51:58.218 [main] LogThis - A transfer has been competed balanced reduced100on account1002
+[INFO ] 2020-11-08 21:56:35.019 [main] LogThis - A deposit has been made 50000added to account 1001
+[INFO ] 2020-11-08 21:57:57.225 [main] LogThis - A transfer has been initiated balanced reduced50from account1002
+[INFO ] 2020-11-08 21:57:57.226 [main] LogThis - A transfer has been competed balanced reduced50on account1001
+[INFO ] 2020-11-08 22:07:14.279 [main] LogThis - A new user account created for Mike jones
+[INFO ] 2020-11-08 22:07:14.283 [main] LogThis - Mike jones account was created!
+[INFO ] 2020-11-08 22:08:45.728 [main] LogThis - Login Successful for mgarcia@gmail.com
+[INFO ] 2020-11-08 22:10:06.454 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-08 22:10:48.776 [main] LogThis - Balance was withdrawn $500from 1001
+[INFO ] 2020-11-08 22:11:37.529 [main] LogThis - A transfer has been initiated balanced reduced 100from account 1001
+[INFO ] 2020-11-08 22:11:37.532 [main] LogThis - A transfer has been competed balanced sent 100to account 1002
+[INFO ] 2020-11-08 22:14:06.487 [main] LogThis - A deposit has been made 500added to account 1002
+[INFO ] 2020-11-08 22:16:22.778 [main] LogThis - A new bank account created for Mike jonesAccountNum: 1002
+[INFO ] 2020-11-08 22:16:22.784 [main] LogThis - Account Number changed for customer Mike jones
+[INFO ] 2020-11-08 23:10:58.901 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:13:33.548 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:33:33.817 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:39:14.105 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:39:42.760 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:41:04.826 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:41:04.831 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:41:25.023 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:41:25.029 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:42:11.251 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:42:11.257 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:42:11.259 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:43:15.891 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:43:15.895 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:43:15.896 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:43:15.898 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.482 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.486 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.488 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.494 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.495 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:56:51.497 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.265 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.271 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.272 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.274 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.275 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-08 23:57:45.277 [main] LogThis - A new empty account created 

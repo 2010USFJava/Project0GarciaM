@@ -16,7 +16,7 @@ public class Menu {
 	public static boolean login = false;
 	
 	public static void startMenu() {
-		System.out.println("Welcome to our Banking app!");
+		System.out.println("Welcome to the Best Bank Ever app!");
 		System.out.println("Please enter a choice: ");
 		System.out.println("\t [c]ustomer's portal");
 		System.out.println("\t [e]mployee] portal");

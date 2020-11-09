@@ -41,6 +41,7 @@ public class Transaction {
 				break;
 			case "q":
 				System.out.println("Thanks for banking with us");
+				System.exit(0);
 				break;
 			default:
 				System.out.println("Invalid input please try again");

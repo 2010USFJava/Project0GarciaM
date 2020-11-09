@@ -49,7 +49,6 @@ public class TransacEmployee {
 					deny = scan.nextLine();
 				}
 				
-				System.out.println(CustomerList.findAccountByEmail(choice));
 				CustomerAccount a =CustomerList.findAccountByEmail(choice);
 				
 				if (deny.equals("y"))  {
@@ -63,17 +62,17 @@ public class TransacEmployee {
 					System.out.println(" current " + GetInput.currentBankAccount);
 					CustomerList.findAccountbyjointAccount(a.getJointAccount()).setAccountNumber(jAccount);
 				}
-				else {	
+				else {
+					
 					highest = TransacService.getHighest();
 					BankAccount newestAccount = new BankAccount(highest, a.getUserName(), 0, "Checking",0);	
 					System.out.println("Account Approved for " + newestAccount);
 					GetInput.currentBankAccount = newestAccount;
-					System.out.println(" current " + GetInput.currentBankAccount);
+					//changes customer object in array to new account number
 					CustomerList.findAccountByEmail(a.getUserEmail()).setAccountNumber(highest);
 				}
-					System.out.println(" Array Customer "+CustomerList.findAccountByEmail(a.getUserEmail()).getAccountNumber());
-				FileUse.writeCustomerFile(CustomerList.userList);
-				LogThis.LogIt("info","Account Number changed for customer " + a.getUserName());
+					FileUse.writeCustomerFile(CustomerList.userList);
+					LogThis.LogIt("info","Account Number changed for customer " + a.getUserName());
 				}
 				
 } 
