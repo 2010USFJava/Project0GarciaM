@@ -11,14 +11,12 @@ import java.util.ArrayList;
 
 import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
-import com.revature.beans.EmployeeUser;
 import com.revature.util.CustomerList;
 
 public class FileUse {
 	
 	public static final String CustomerFile ="CustomerList.txt";
 	public static final String BankFile = "BankingFiles.txt";
-	public static final String EmployeeFile = "EmployeeList.txt";
 	
 	//write User method
 	public static void writeCustomerFile(List<CustomerAccount> uList) {
@@ -49,19 +47,7 @@ public class FileUse {
 		}
 	}
 	
-	//write employee method
-	public static void writeEmployeeFile(List<EmployeeUser> eList) {
-		try {
-			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(EmployeeFile));
-			objectOut.writeObject(eList);
-			objectOut.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
+
 	//read Customer method
 	public static void readCustomerFile() {
 		try {
@@ -77,20 +63,6 @@ public class FileUse {
 		
 	}
 	
-	//read Employee method
-		public static void readEmployeeFile() {
-			try {
-				ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(EmployeeFile));
-				EmployeeList.empList = (ArrayList<EmployeeUser>)objectIn.readObject();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			
-		}
 	
 	//read Bank account method
 	public static void readBankFile() {

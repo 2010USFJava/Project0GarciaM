@@ -30,7 +30,7 @@ public class TransacService {
 			//increment transaction account in array
 			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setTransactionCount(GetInput.currentBankAccount.getTransactionCount()+1);
 			FileUse.writeBankFile(BankData.bankList);
-			
+			printBalance();
 			LogThis.LogIt("info", "Balance was withdrawn $" + amount + "from " + GetInput.currentBankAccount.getAccountNumber());
 		}
 		else {
@@ -55,18 +55,31 @@ public class TransacService {
 	public static void transferAccount() {
 		System.out.println("Which account would you like to transfer too? Please enter account number: ");
 		int transferAccount = Integer.parseInt(scan.nextLine());
+		System.out.println("How much would you like to transfer?");
+		int transferAmount = Integer.parseInt(scan.nextLine());
+		int newBalance = GetInput.currentBankAccount.getAccountBalance() - transferAmount;
+		LogThis.LogIt("info","A transfer has been initiated balanced reduced" + transferAmount+ "from account" + GetInput.currentBankAccount.getAccountNumber());
+		BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
+		BankAccount t = BankData.findAccountByAccountNumber(transferAccount);
+		BankData.findAccountByAccountNumber(transferAccount).setAccountBalance(t.getAccountBalance()+transferAmount);
+		FileUse.writeBankFile(BankData.bankList);
+		LogThis.LogIt("info","A transfer has been competed balanced reduced" + transferAmount+ "on account" + t.getAccountNumber());
+		
 		
 	}
 	
 	public static void printBalance() {
-		System.out.println("Current balance is: $");
-		System.out.println(GetInput.currentBankAccount.getAccountBalance());
+		System.out.println("Current balance is: ");
+		System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
 	}
 	
 	public static void approvalCheck() {
 		System.out.println("Checking aproval status: ");
+		
 		if (GetInput.currentCustomer.getAccountNumber() > 1000) {
 			System.out.println("Status Approved ");
+		}else if (GetInput.currentCustomer.getAccountNumber() < 0) {
+			System.out.println("Your account has been denied please try again in the future");
 		}
 		else
 			System.out.println("Application still pending approval");

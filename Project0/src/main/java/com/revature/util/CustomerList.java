@@ -35,4 +35,30 @@ public class CustomerList {
 		return null;
 		 
 	}
+	
+	public static CustomerAccount findAccountbyNumber(int account) {
+		for (int i = 0; i < userList.size(); i++) {
+			int accountNumber= userList.get(i).getAccountNumber();
+			if(accountNumber == account) {
+				return userList.get(i);
+			}
+		}
+		System.out.println("User not found");
+		Menu.startMenu();
+		return null;
+	
+}
+	
+	public static CustomerAccount findAccountbyjointAccount(int account) {
+		for (int i = 0; i < userList.size(); i++) {
+			int accountNumber= userList.get(i).getJointAccount();
+			if(accountNumber == account) {
+				return userList.get(i);
+			}
+		}
+		System.out.println("User not found");
+		Menu.startMenu();
+		return null;
+	
+}
 }

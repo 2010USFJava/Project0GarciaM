@@ -2,18 +2,15 @@ package com.revature.util.userInput;
 import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
-import com.revature.beans.EmployeeUser;
 import com.revature.beans.CustomerAccount;
 import com.revature.util.BankData;
 import com.revature.util.CustomerList;
-import com.revature.util.EmployeeList;
 import com.revature.util.LogThis;
 import com.revature.service.Transaction;
 
 public class GetInput {
 	static Scanner scan = new Scanner(System.in);
 	public static CustomerAccount currentCustomer;
-	public static EmployeeUser currentEmploye;
 	public static BankAccount currentBankAccount;
 	public static BankAccount transferBankAccount;
 	public static boolean isAdmin = false;
@@ -76,11 +73,14 @@ public class GetInput {
 			}	
 			else if (jAccount.equalsIgnoreCase("n")) {
 				createCustomer(userEmail,password,name,address,phone,jNumAccount);
+				
 			}
+			
 			if (isJointAccount) {
 				if (jNumAccount > 0) {
 					int newJointNumber = BankData.findAccountByAccountNumber(jNumAccount).getAccountNumber();
 					createCustomer(userEmail,password,name,address,phone,newJointNumber);
+					
 				}
 				else {
 					createCustomer(userEmail,password,name,address,phone,jNumAccount);
@@ -95,35 +95,17 @@ public class GetInput {
 	
 	
 	
-	public static void createEmployee(int employeeNumber, String userEmail, String userPassword, String userName, String userAddress,
-			String userPhone, boolean isAdmin) {
-		EmployeeUser a = new EmployeeUser( employeeNumber,  userEmail, userPassword,  userName,  userAddress,
-				userPhone,  isAdmin);
-		LogThis.LogIt("info",a.getUserName() + " employee account was created! ");
-		System.out.println("Employee Account Created" + "employee number: " + employeeNumber);
-		System.out.println(a); //check to test valid input remove later
-	}
+	
 	
 	public static void createCustomer(String userEmail, String password, String name, String address, String phone, int jNumAccount) {
 		CustomerAccount a = new CustomerAccount(userEmail,password,name,address,phone,jNumAccount);
 		LogThis.LogIt("info",a.getUserName() + " account was created!");
 		System.out.println(a); //check to test valid input remove later
 		System.out.println("Your application has been accepted please wait for aprovall");
+		
 	}
 	
-	public static void employeeInput() {
-				
-		System.out.println("Please enter employee number");
-				int employeeNumber = Integer.parseInt(scan.nextLine());
-				System.out.println("Are you an admin? y/n");
-				String adminChoice = scan.next();
-				
-				if (adminChoice.equalsIgnoreCase("y"))
-					isAdmin = true;
-				else
-					isAdmin = false;
-			
-			}
+	
 			
 				
 }

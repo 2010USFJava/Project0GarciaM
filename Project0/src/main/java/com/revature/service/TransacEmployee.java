@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
+import com.revature.menu.EmployeePortal;
 import com.revature.util.BankData;
 import com.revature.util.CustomerList;
 import com.revature.util.FileUse;
@@ -29,6 +30,8 @@ public class TransacEmployee {
 	
 	public static void approveAccounts() {
 		String choice = "";
+		String deny = "";
+		int highest = 0;
 		
 		System.out.println("Printing all unapproved accounts");
 		for (CustomerAccount lc: CustomerList.userList) {
@@ -37,26 +40,66 @@ public class TransacEmployee {
 				}
 			}
 				while (choice.equals("n") == false) {
-				int highest = 0;
-				System.out.println("Would you like to approve any accounts? Choose via email, [n] to exit ");
+				
+				System.out.println("Would you like to approve/deny any accounts? Choose via email, [n] to exit ");
 				choice= scan.nextLine().toLowerCase();
-									
+				
+				if(choice.contains("n")== false) {
+					System.out.println("would you liketo deny this account ? y/n ");
+					deny = scan.nextLine();
+				}
+				
 				System.out.println(CustomerList.findAccountByEmail(choice));
 				CustomerAccount a =CustomerList.findAccountByEmail(choice);
-				highest = TransacService.getHighest();
-				BankAccount newestAccount = new BankAccount(highest, a.getUserName(), 0, "Checking",0);	
-				System.out.println("Account Approved for " + newestAccount);
-				GetInput.currentBankAccount = newestAccount;
-				System.out.println(" current " + GetInput.currentBankAccount);
-				CustomerList.findAccountByEmail(a.getUserEmail()).setAccountNumber(highest);
-				System.out.println(" Array Customer "+CustomerList.findAccountByEmail(a.getUserEmail()).getAccountNumber());
+				
+				if (deny.equals("y"))  {
+						denyAccount(a);
+					}	
+				else if(a.getJointAccount() > 1000) {
+					int jAccount = a.getJointAccount();
+					BankAccount newestAccount = new BankAccount(jAccount, a.getUserName(), 0, "Checking",0);
+					System.out.println("Account Approved for " + newestAccount);
+					GetInput.currentBankAccount = newestAccount;
+					System.out.println(" current " + GetInput.currentBankAccount);
+					CustomerList.findAccountbyjointAccount(a.getJointAccount()).setAccountNumber(jAccount);
+				}
+				else {	
+					highest = TransacService.getHighest();
+					BankAccount newestAccount = new BankAccount(highest, a.getUserName(), 0, "Checking",0);	
+					System.out.println("Account Approved for " + newestAccount);
+					GetInput.currentBankAccount = newestAccount;
+					System.out.println(" current " + GetInput.currentBankAccount);
+					CustomerList.findAccountByEmail(a.getUserEmail()).setAccountNumber(highest);
+				}
+					System.out.println(" Array Customer "+CustomerList.findAccountByEmail(a.getUserEmail()).getAccountNumber());
 				FileUse.writeCustomerFile(CustomerList.userList);
 				LogThis.LogIt("info","Account Number changed for customer " + a.getUserName());
-				} 
+				}
 				
-			 
-			
+} 
+				
+
+	public static void denyAccount(CustomerAccount account) {
+		CustomerList.findAccountByEmail(account.getUserEmail()).setAccountNumber(-1);
+		FileUse.writeCustomerFile(CustomerList.userList);
+		LogThis.LogIt("info", "Account denied for user: "+ account.getUserName());
 	}
+	
+	public static void deleteAccount() {
+		System.out.println("ARE YOU SURE YOU WANT TO DELETE THIS ACOUNT? y/n ");
+		String choice = scan.nextLine();
+		if (choice.equalsIgnoreCase("y")) {
+			BankData.bankList.remove(BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()));
+			CustomerList.userList.remove(CustomerList.findAccountbyNumber(GetInput.currentBankAccount.getAccountNumber()));
+			FileUse.writeBankFile(BankData.bankList);
+			FileUse.writeCustomerFile(CustomerList.userList);
+			LogThis.LogIt("info", "Account deleted in both customer and bank account"+ GetInput.currentBankAccount.getAccountNumber());
+		}
+		else
+			EmployeePortal.editMenu();
+		
+	}
+	
 }
 	
 	

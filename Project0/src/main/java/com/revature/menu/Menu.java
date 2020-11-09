@@ -57,16 +57,18 @@ public class Menu {
 			break;
 		case "l":
 			
-			if(Login.loginCustomer() && GetInput.currentCustomer.getAccountNumber() > 1000) {
-				System.out.println("");
-				Transaction.transactionMenu();
+			if(Login.loginCustomer()) {
+				if (GetInput.currentCustomer.getAccountNumber() > 1000) {
+					System.out.println("");
+					Transaction.transactionMenu();
+				}
 				
 			}
-			else {
-				System.out.println("Login Failed returning to menu or account not approved yet");
+			else {	System.out.println("Login Failed returning to menu or account not approved yet");
 				LogThis.LogIt("info", "Customer login failed");
 				customerPortal();
 			}
+			
 			break;
 		case "c":
 			TransacService.approvalCheck();
