@@ -3,7 +3,7 @@ package com.revature.service;
 import java.util.Scanner;
 
 import com.revature.menu.Menu;
-public class Transaction {
+public class TransactionMenu {
 	
 	public static void transactionMenu() {
 		
@@ -22,22 +22,22 @@ public class Transaction {
 		switch(choice.toLowerCase()){ 
 			case "c":
 				TransacService.checkBalance();
-				Transaction.transactionMenu();
+				TransactionMenu.transactionMenu();
 				break;	
 			case "w":
 				TransacService.withdrawAccount();
-				Transaction.transactionMenu();
+				TransactionMenu.transactionMenu();
 				break;
 			case "d":
 				TransacService.depositAccount();
-				Transaction.transactionMenu();
+				TransactionMenu.transactionMenu();
 				break;
 			case "t":
 				TransacService.transferAccount();
-				Transaction.transactionMenu();
+				TransactionMenu.transactionMenu();
 				break;
 			case "b":
-				Menu.customerPortal();
+				Menu.startMenu();
 				break;
 			case "q":
 				System.out.println("Thanks for banking with us");

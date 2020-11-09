@@ -49,7 +49,7 @@ public class TransacEmployee {
 					deny = scan.nextLine();
 				}
 				
-				CustomerAccount a =CustomerList.findAccountByEmail(choice);
+				CustomerAccount a = CustomerList.findAccountByEmail(choice);
 				
 				if (deny.equals("y"))  {
 						denyAccount(a);

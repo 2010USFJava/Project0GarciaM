@@ -6,7 +6,7 @@ import com.revature.beans.CustomerAccount;
 import com.revature.util.BankData;
 import com.revature.util.CustomerList;
 import com.revature.util.LogThis;
-import com.revature.service.Transaction;
+import com.revature.service.TransactionMenu;
 
 public class GetInput {
 	static Scanner scan = new Scanner(System.in);
@@ -79,13 +79,7 @@ public class GetInput {
 			if (isJointAccount) {
 				if (jNumAccount > 0) {
 					int newJointNumber = BankData.findAccountByAccountNumber(jNumAccount).getAccountNumber();
-					createCustomer(userEmail,password,name,address,phone,newJointNumber);
-					
-				}
-				else {
-					createCustomer(userEmail,password,name,address,phone,jNumAccount);
-					System.out.println("Please create the joint account");
-					getCustomerInfo();
+					createCustomer(userEmail,password,name,address,phone,newJointNumber);		
 				}
 			}	
 			

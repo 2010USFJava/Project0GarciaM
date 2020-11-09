@@ -13,7 +13,7 @@ public class BankAccount implements Serializable{
 	 */
 	private static final long serialVersionUID = 5417792914593550047L;
 	
-	private int accountNumber;
+	private int accountNumber = 0;
 	private String ownerName;
 	private int accountBalance;
 	private String accountType;

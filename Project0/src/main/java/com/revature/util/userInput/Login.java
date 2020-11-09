@@ -22,11 +22,9 @@ public class Login {
 		System.out.println(b);
 			if(a.equals(b)) {
 			System.out.println("Login Successful!");
-			GetInput.currentCustomer = a;
 			LogThis.LogIt("info", "Login Successful for " + a.getUserEmail());
-			GetInput.currentBankAccount = BankData.findAccountByAccountNumber(a.getAccountNumber());
-				if(GetInput.currentCustomer.getAccountNumber() == -1)
-					System.out.println("Your Account has been denied please try again in the future");
+			GetInput.currentBankAccount = BankData.findAccountByAccountName(a.getUserName());
+			GetInput.currentCustomer = a;	
 			return true;
 			
 		}
@@ -35,7 +33,7 @@ public class Login {
 			LogThis.LogIt("info", "Login Failed for " + a.getUserEmail());
 			return false;
 		
-	}
+		}	
 	}
 		
 		

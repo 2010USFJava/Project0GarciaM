@@ -91,7 +91,7 @@ public class TransacService {
 		}
 	
 	public static int getHighest() {
-		int highestAccount = 0;
+		int highestAccount = 1000;
 		for (BankAccount lb: BankData.bankList ) {
 			for (BankAccount lc: BankData.bankList  ) {
 				if(lb.getAccountNumber() > lc.getAccountNumber())

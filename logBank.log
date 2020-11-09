@@ -148,3 +148,44 @@
 [INFO ] 2020-11-08 23:57:45.274 [main] LogThis - A new empty account created 
 [INFO ] 2020-11-08 23:57:45.275 [main] LogThis - A new empty account created 
 [INFO ] 2020-11-08 23:57:45.277 [main] LogThis - A new empty account created 
+[INFO ] 2020-11-09 05:38:10.048 [main] LogThis - A new empty account created
+[INFO ] 2020-11-09 06:01:34.729 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-09 06:02:10.067 [main] LogThis - Login Successful for mgarcia@gmail.com
+[INFO ] 2020-11-09 06:04:28.154 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-09 06:05:18.966 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-09 06:06:18.729 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-09 06:12:35.067 [main] LogThis - Login Successful for gfisher@gmail.com
+[INFO ] 2020-11-09 06:13:45.406 [main] LogThis - A new user account created for Miguel Garcia
+[INFO ] 2020-11-09 06:13:45.408 [main] LogThis - Miguel Garcia account was created!
+[INFO ] 2020-11-09 06:14:02.775 [main] LogThis - A new bank account created for Miguel GarciaAccountNum: 1
+[INFO ] 2020-11-09 06:14:02.776 [main] LogThis - Account Number changed for customer Miguel Garcia
+[INFO ] 2020-11-09 06:16:26.154 [main] LogThis - A new user account created for Gwen Fisher
+[INFO ] 2020-11-09 06:16:26.157 [main] LogThis - Gwen Fisher account was created!
+[INFO ] 2020-11-09 06:16:37.048 [main] LogThis - A new bank account created for Gwen FisherAccountNum: 2
+[INFO ] 2020-11-09 06:16:37.048 [main] LogThis - Account Number changed for customer Gwen Fisher
+[INFO ] 2020-11-09 06:17:42.415 [main] LogThis - A new user account created for John fisher
+[INFO ] 2020-11-09 06:17:42.417 [main] LogThis - John fisher account was created!
+[INFO ] 2020-11-09 06:18:03.534 [main] LogThis - A new bank account created for John fisherAccountNum: 3
+[INFO ] 2020-11-09 06:18:03.536 [main] LogThis - Account Number changed for customer John fisher
+[INFO ] 2020-11-09 06:19:37.976 [main] LogThis - Account deleted in both customer and bank account2
+[INFO ] 2020-11-09 06:20:01.335 [main] LogThis - Login Successful for jfisher@gmail.com
+[INFO ] 2020-11-09 06:20:12.423 [main] LogThis - A deposit has been made 1000added to account 3
+[INFO ] 2020-11-09 06:20:25.821 [main] LogThis - A transfer has been initiated balanced reduced 100from account 3
+[INFO ] 2020-11-09 06:20:25.822 [main] LogThis - A transfer has been competed balanced sent 100to account 3
+[INFO ] 2020-11-09 06:22:22.887 [main] LogThis - A new user account created for Sam Fisher
+[INFO ] 2020-11-09 06:22:22.888 [main] LogThis - Sam Fisher account was created!
+[INFO ] 2020-11-09 06:22:40.226 [main] LogThis - A new bank account created for Sam FisherAccountNum: 4
+[INFO ] 2020-11-09 06:22:40.228 [main] LogThis - Account Number changed for customer Sam Fisher
+[INFO ] 2020-11-09 06:26:21.971 [main] LogThis - A new user account created for Mike Fisher
+[INFO ] 2020-11-09 06:26:21.974 [main] LogThis - Mike Fisher account was created!
+[INFO ] 2020-11-09 06:26:57.531 [main] LogThis - A new bank account created for Mike FisherAccountNum: 3
+[INFO ] 2020-11-09 06:26:57.533 [main] LogThis - Account Number changed for customer Mike Fisher
+[INFO ] 2020-11-09 06:27:16.310 [main] LogThis - A deposit has been made 200added to account 4
+[INFO ] 2020-11-09 06:27:53.014 [main] LogThis - A new bank account created for Mike FisherAccountNum: 3
+[INFO ] 2020-11-09 06:27:53.015 [main] LogThis - Account Number changed for customer Mike Fisher
+[INFO ] 2020-11-09 06:28:55.973 [main] LogThis - A new bank account created for Mike FisherAccountNum: 3
+[INFO ] 2020-11-09 06:28:55.977 [main] LogThis - Account Number changed for customer Mike Fisher
+[INFO ] 2020-11-09 06:32:09.276 [main] LogThis - A new user account created for Sam Fisher
+[INFO ] 2020-11-09 06:32:09.279 [main] LogThis - Sam Fisher account was created!
+[INFO ] 2020-11-09 06:33:29.987 [main] LogThis - A new user account created for Jogn fisher
+[INFO ] 2020-11-09 06:33:29.989 [main] LogThis - Jogn fisher account was created!

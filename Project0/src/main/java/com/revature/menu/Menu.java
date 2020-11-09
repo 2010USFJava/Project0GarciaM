@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.revature.util.LogThis;
 import com.revature.service.TransacEmployee;
 import com.revature.service.TransacService;
-import com.revature.service.Transaction;
+import com.revature.service.TransactionMenu;
 import com.revature.util.userInput.GetInput;
 import com.revature.util.userInput.Login;
 
@@ -57,12 +57,8 @@ public class Menu {
 			break;
 		case "l":
 			
-			if(Login.loginCustomer()) {
-				if (GetInput.currentCustomer.getAccountNumber() > 1000) {
-					System.out.println("");
-					Transaction.transactionMenu();
-				}
-				
+			if(Login.loginCustomer() == true) {
+				TransactionMenu.transactionMenu();	
 			}
 			else {	System.out.println("Login Failed returning to menu or account not approved yet");
 				LogThis.LogIt("info", "Customer login failed");

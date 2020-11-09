@@ -13,13 +13,15 @@ public class findJointAccountTest {
 	static CustomerAccount a;
 	static CustomerAccount b;
 	
-	@BeforeClass
-	
-	
+
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void JointAccountTest() {
+		System.out.println("setting values of a and b");
+		CustomerAccount a = new CustomerAccount();
+		a.setAccountNumber(100);
+		b = a;
+		assert(a.equals(b));
 	}
 
 }

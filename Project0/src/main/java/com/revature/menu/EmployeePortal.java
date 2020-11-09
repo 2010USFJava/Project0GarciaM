@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.revature.beans.CustomerAccount;
 import com.revature.service.TransacEmployee;
 import com.revature.service.TransacService;
-import com.revature.service.Transaction;
+import com.revature.service.TransactionMenu;
 import com.revature.util.BankData;
 import com.revature.util.CustomerList;
 import com.revature.util.userInput.GetInput;
@@ -91,7 +91,7 @@ public class EmployeePortal {
 				editMenu();	
 			break;
 			case "e":
-				Transaction.transactionMenu();
+				TransactionMenu.transactionMenu();
 				editMenu();
 			case "b":
 				employeeMenu();
