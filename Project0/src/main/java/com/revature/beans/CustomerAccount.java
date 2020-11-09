@@ -1,8 +1,12 @@
-package com.revature.util;
+package com.revature.beans;
 
 import java.io.Serializable;
 
-public class UserAccount implements Serializable{
+import com.revature.util.CustomerList;
+import com.revature.util.FileUse;
+import com.revature.util.LogThis;
+
+public class CustomerAccount implements Serializable{
 
 	/**
 	 * 
@@ -13,43 +17,47 @@ public class UserAccount implements Serializable{
 	private String userName;
 	private String userAddress;
 	private String userPhone;
-	private boolean isEmployee;
-	private boolean jointAccount;
+	int jointAccount;
+	//default empty account number
+	int accountNumber = 1000;
 	
-	public UserAccount() {
+	
+	public CustomerAccount() {
 		super();
-		this.isEmployee = false;
-		AccountList.userList.add(this);
-		FileUse.writeUserFile(AccountList.userList);
-		LogThis.LogIt("info", "A new user account created");
+		LogThis.LogIt("info", "A new empty account created");
 		
 	}
 	
-	public UserAccount(String userEmail, String userPassword, String userName, String userAddress, String userPhone,
-			boolean isEmployee, boolean jointAccount) {
+	public CustomerAccount(String userEmail, String userPassword, String userName, String userAddress, String userPhone,
+			int jointAccount) {
 		super();
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userAddress = userAddress;
 		this.userPhone = userPhone;
-		this.isEmployee = isEmployee;
 		this.jointAccount = jointAccount;
-		AccountList.userList.add(this);
-		FileUse.writeUserFile(AccountList.userList);
-		LogThis.LogIt("info", "A new user account created for" + this.getUserName());
+		System.out.println(this.accountNumber);
+		CustomerList.userList.add(this);
+		FileUse.writeCustomerFile(CustomerList.userList);
+		LogThis.LogIt("info", "A new user account created for " + this.getUserName());
 	}
 
-	public boolean isJointAccount() {
+	public int 	getAccountNumber() {
+		return accountNumber;
+	}
+	
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	public int getJointAccount() {
 		return jointAccount;
 	}
 
-	public void setJointAccount(boolean jointAccount) {
+	public void setJointAccount(int jointAccount) {
 		this.jointAccount = jointAccount;
 	}
-
-	
-
 
 
 	public String getUserEmail() {
@@ -93,19 +101,12 @@ public class UserAccount implements Serializable{
 	}
 
 	
-	public boolean isEmployee() {
-		return isEmployee;
-	}
-
-	public void setEmployee(boolean isEmployee) {
-		this.isEmployee = isEmployee;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "UserAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
-				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + ", isEmployee=" + isEmployee
-				+ ", jointAccount=" + jointAccount + "]";
+		return "CustomerAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
+				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone 
+				+ ", jointAccountNumber=" + jointAccount + "Account Number"+ accountNumber +"]";
 	}
 
 	

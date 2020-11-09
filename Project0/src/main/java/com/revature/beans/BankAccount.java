@@ -2,6 +2,10 @@ package com.revature.beans;
 
 import java.io.Serializable;
 
+import com.revature.util.BankData;
+import com.revature.util.FileUse;
+import com.revature.util.LogThis;
+
 public class BankAccount implements Serializable{
 
 	/**
@@ -9,7 +13,7 @@ public class BankAccount implements Serializable{
 	 */
 	private static final long serialVersionUID = 5417792914593550047L;
 	
-	private int accountNumber;
+	private int accountNumber = 0;
 	private String ownerName;
 	private int accountBalance;
 	private String accountType;
@@ -17,16 +21,21 @@ public class BankAccount implements Serializable{
 	
 	public BankAccount() {
 		super();
+		BankData.bankList.add(this);
+		FileUse.writeBankFile(BankData.bankList);
+		LogThis.LogIt("info", "A new empty account created ");
 	}
 
 	public BankAccount(int accountNumber, String ownerName, int accountBalance, String accountType,
 			int transactionCount) {
-		super();
 		this.accountNumber = accountNumber;
 		this.ownerName = ownerName;
 		this.accountBalance = accountBalance;
 		this.accountType = accountType;
 		this.transactionCount = transactionCount;
+		BankData.bankList.add(this);
+		FileUse.writeBankFile(BankData.bankList);
+		LogThis.LogIt("info", "A new bank account created for " + this.getOwnerName() + "AccountNum: " + this.getAccountNumber());
 	}
 
 	public int getAccountNumber() {
@@ -67,6 +76,12 @@ public class BankAccount implements Serializable{
 
 	public void setTransactionCount(int transactionCount) {
 		this.transactionCount = transactionCount;
+	}
+
+	@Override
+	public String toString() {
+		return "BankAccount [accountNumber=" + accountNumber + ", ownerName=" + ownerName + ", accountBalance="
+				+ accountBalance + ", accountType=" + accountType + ", transactionCount=" + transactionCount + "]";
 	}
 	
 	
