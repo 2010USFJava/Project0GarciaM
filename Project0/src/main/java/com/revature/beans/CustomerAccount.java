@@ -18,13 +18,13 @@ public class CustomerAccount implements Serializable{
 	private String userAddress;
 	private String userPhone;
 	int jointAccount;
+	//default empty account number
+	int accountNumber = 1000;
 	
 	
 	public CustomerAccount() {
 		super();
-		CustomerList.userList.add(this);
-		FileUse.writeCustomerFile(CustomerList.userList);
-		LogThis.LogIt("info", "A new user account created");
+		LogThis.LogIt("info", "A new empty account created");
 		
 	}
 	
@@ -36,18 +36,26 @@ public class CustomerAccount implements Serializable{
 		this.userName = userName;
 		this.userAddress = userAddress;
 		this.userPhone = userPhone;
-		
 		this.jointAccount = jointAccount;
+		System.out.println(this.accountNumber);
 		CustomerList.userList.add(this);
 		FileUse.writeCustomerFile(CustomerList.userList);
-		LogThis.LogIt("info", "A new user account created for" + this.getUserName());
+		LogThis.LogIt("info", "A new user account created for " + this.getUserName());
 	}
 
-	public int isisJointAccount() {
+	public int 	getAccountNumber() {
+		return accountNumber;
+	}
+	
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	public int getJointAccount() {
 		return jointAccount;
 	}
 
-	public void setisJointAccount(int jointAccount) {
+	public void setJointAccount(int jointAccount) {
 		this.jointAccount = jointAccount;
 	}
 
@@ -96,9 +104,9 @@ public class CustomerAccount implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "UserAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
+		return "CustomerAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
 				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone 
-				+ ", jointAccountNumber=" + jointAccount + "]";
+				+ ", jointAccountNumber=" + jointAccount + "Account Number"+ accountNumber +"]";
 	}
 
 	

@@ -26,8 +26,8 @@ public class CustomerList {
 	
 	public static CustomerAccount findAccountByPassword(String inputName) {
 		for (int i = 0; i < userList.size(); i++) {
-				String name = userList.get(i).getUserPassword();
-				if(inputName.equals(name))
+				String password = userList.get(i).getUserPassword();
+				if(inputName.equals(password))
 					return userList.get(i);
 		}
 		System.out.println("Password not found");

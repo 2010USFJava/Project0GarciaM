@@ -23,8 +23,6 @@ public class EmployeeUser implements Serializable {
 	
 	public EmployeeUser() {
 		super();
-		EmployeeList.empList.add(this);
-		FileUse.writeEmployeeFile(EmployeeList.empList);
 		LogThis.LogIt("info", "A new empty employee account created");
 
 	}

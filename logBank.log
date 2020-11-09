@@ -1,0 +1,52 @@
+[INFO ] 2020-11-07 16:20:27.404 [main] LogThis - A new user account created formike jones
+[INFO ] 2020-11-07 16:20:27.407 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-07 17:34:15.130 [main] LogThis - A new user account created formike jones
+[INFO ] 2020-11-07 17:34:15.132 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-08 11:24:03.648 [main] LogThis - A new user account created forMike jones
+[INFO ] 2020-11-08 11:24:03.651 [main] LogThis - Mike jones account was created!
+[INFO ] 2020-11-08 16:25:41.121 [main] LogThis - A new user account created formike jones
+[INFO ] 2020-11-08 16:25:41.123 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-08 16:30:42.773 [main] LogThis - A new user account created formike jones III
+[INFO ] 2020-11-08 16:30:42.787 [main] LogThis - mike jones III account was created!
+[INFO ] 2020-11-08 16:31:06.827 [main] LogThis - Login Failed for aquamiguel@gmail.com
+[INFO ] 2020-11-08 16:31:06.827 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 16:36:52.878 [main] LogThis - Login Failed for aquamiguel@gmail.com
+[INFO ] 2020-11-08 16:36:52.881 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 16:37:23.737 [main] LogThis - A new user account created formike jones
+[INFO ] 2020-11-08 16:37:23.739 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-08 16:37:29.691 [main] LogThis - Login Failed for m@gmail.com
+[INFO ] 2020-11-08 16:37:29.691 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 16:40:47.888 [main] LogThis - Login Failed for m@gmail.com
+[INFO ] 2020-11-08 16:40:47.890 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 16:43:21.979 [main] LogThis - Login Failed for m@gmail.com
+[INFO ] 2020-11-08 16:43:21.983 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 16:46:42.797 [main] LogThis - A new user account created fornick jones
+[INFO ] 2020-11-08 16:46:42.807 [main] LogThis - nick jones account was created!
+[INFO ] 2020-11-08 16:47:59.837 [main] LogThis - Login Successful for aquanick@gmail.com
+[INFO ] 2020-11-08 16:49:59.232 [main] LogThis - Login Successful for aquanick@gmail.com
+[INFO ] 2020-11-08 17:53:40.746 [main] LogThis - A new bank account created formike jonesAccountNum:1000
+[INFO ] 2020-11-08 17:54:52.645 [main] LogThis - A new bank account created fornick jonesAccountNum:1001
+[INFO ] 2020-11-08 18:02:29.817 [main] LogThis - A new bank account created formike jonesAccountNum:1003
+[INFO ] 2020-11-08 18:04:44.180 [main] LogThis - A new bank account created formike jonesAccountNum:1005
+[INFO ] 2020-11-08 18:10:08.636 [main] LogThis - A new user account created formike jones
+[INFO ] 2020-11-08 18:10:08.638 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-08 18:10:45.799 [main] LogThis - Login Successful for abc@abc.com
+[INFO ] 2020-11-08 18:13:10.309 [main] LogThis - A new bank account created formike jonesAccountNum:1007
+[INFO ] 2020-11-08 18:20:19.503 [main] LogThis - A new user account created for mike jones
+[INFO ] 2020-11-08 18:20:19.506 [main] LogThis - mike jones account was created!
+[INFO ] 2020-11-08 18:20:37.508 [main] LogThis - Login Successful for 123@1.com
+[INFO ] 2020-11-08 18:20:37.508 [main] LogThis - Customer login failed
+[INFO ] 2020-11-08 18:21:11.708 [main] LogThis - A new bank account created formike jonesAccountNum:1008
+[INFO ] 2020-11-08 18:27:43.233 [main] LogThis - A new user account created for jack jack
+[INFO ] 2020-11-08 18:27:43.235 [main] LogThis - jack jack account was created!
+[INFO ] 2020-11-08 18:28:17.667 [main] LogThis - A new user account created for sam jones
+[INFO ] 2020-11-08 18:28:17.668 [main] LogThis - sam jones account was created!
+[INFO ] 2020-11-08 18:28:35.839 [main] LogThis - A new bank account created forsam jonesAccountNum:1009
+[INFO ] 2020-11-08 18:28:35.841 [main] LogThis - Account Number changed for customer sam jones
+[INFO ] 2020-11-08 18:29:47.226 [main] LogThis - Login Successful for sam@sam.com
+[INFO ] 2020-11-08 18:32:10.697 [main] LogThis - Login Successful for sam@sam.com
+[INFO ] 2020-11-08 18:32:24.818 [main] LogThis - A deposit has been made 1000added to account 1009
+[INFO ] 2020-11-08 18:32:38.574 [main] LogThis - Balance was withdrawn $500from 1009
+[INFO ] 2020-11-08 18:35:39.207 [main] LogThis - A deposit has been made 5000added to account 1009
+[INFO ] 2020-11-08 18:43:05.031 [main] LogThis - A new bank account created for jack jackAccountNum: 1010
+[INFO ] 2020-11-08 18:43:05.039 [main] LogThis - Account Number changed for customer jack jack

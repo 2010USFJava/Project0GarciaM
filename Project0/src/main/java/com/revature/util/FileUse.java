@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
 import com.revature.beans.EmployeeUser;
 import com.revature.util.CustomerList;
@@ -20,31 +21,30 @@ public class FileUse {
 	public static final String EmployeeFile = "EmployeeList.txt";
 	
 	//write User method
-	public static void writeCustomerFile(List<CustomerAccount> UList) {
+	public static void writeCustomerFile(List<CustomerAccount> uList) {
 		try {
 			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(CustomerFile));
-			objectOut.writeObject(UList);
+			objectOut.writeObject(uList);
 			objectOut.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
+		
 	}
 	
 	//write bank account method
-	public static void writeBankFile(List<CustomerAccount> bList) {
+	public static void writeBankFile(List<BankAccount> bankList) {
 		try {
 			ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(BankFile));
-			objectOut.writeObject(bList);
+			objectOut.writeObject(bankList);
 			objectOut.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -56,10 +56,8 @@ public class FileUse {
 			objectOut.writeObject(eList);
 			objectOut.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -70,13 +68,10 @@ public class FileUse {
 			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(CustomerFile));
 			CustomerList.userList = (ArrayList<CustomerAccount>)objectIn.readObject();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -86,15 +81,12 @@ public class FileUse {
 		public static void readEmployeeFile() {
 			try {
 				ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(EmployeeFile));
-				CustomerList.userList = (ArrayList<CustomerAccount>)objectIn.readObject();
+				EmployeeList.empList = (ArrayList<EmployeeUser>)objectIn.readObject();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -104,15 +96,12 @@ public class FileUse {
 	public static void readBankFile() {
 		try {
 			ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(BankFile));
-			EmployeeList.empList = (ArrayList<EmployeeUser>)objectIn.readObject();
+			BankData.bankList = (ArrayList<BankAccount>)objectIn.readObject();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

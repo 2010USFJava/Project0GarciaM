@@ -24,7 +24,7 @@ public class EmployeeList {
 	
 }
 	
-	protected static EmployeeUser findAccountByPassword(String inputName) {
+	public static EmployeeUser findAccountByPassword(String inputName) {
 		for (int i = 0; i < empList.size(); i++) {
 				String name = empList.get(i).getUserPassword();
 				if(inputName.equals(name))
