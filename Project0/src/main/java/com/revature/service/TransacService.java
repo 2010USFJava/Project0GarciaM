@@ -14,7 +14,7 @@ public class TransacService {
 	static Scanner scan = new Scanner(System.in);
 	public static void checkBalance() {
 		System.out.println("The balance of you account is: $");
-		System.out.println(GetInput.currentBankAccount.getAccountBalance());
+		//System.out.println(GetInput.currentBankAccount.getAccountBalance());
 	}
 	
 	public static void withdrawAccount() {
@@ -45,7 +45,7 @@ public class TransacService {
 	
 	public static void printBalance() {
 		System.out.println("Current balance is: ");
-		System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
+		//System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
 	}
 	
 	

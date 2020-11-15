@@ -19,4 +19,6 @@ public interface BankAccountDao {
 	
 	public void withdraw() throws SQLException;
 
+	public int findBankAccountbyUserBank_ID(int bank_ID) throws SQLException;
+
 }

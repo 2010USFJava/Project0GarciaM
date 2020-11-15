@@ -8,7 +8,7 @@
 				</Pattern>
 			</PatternLayout>
 		</Console>
-		<File name="File" fileName="C:\Project\Project0GarciaM\logBank.log">
+		<File name="File" fileName="C:\Coding Default\Projects\P0\Project0GarciaM\Project0\logBank.log">
 			<PatternLayout>
 				<Pattern>
 					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n

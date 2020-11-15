@@ -38,7 +38,6 @@ public class BankAccountDaoImpl implements BankAccountDao{
 		ResultSet rs = ps.executeQuery();
 		BankAccount a = null;
 		while (rs.next()) {
-			//make sure constructor matches
 		BankAccount	b = new BankAccount(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4));
 			accountList.add(b);
 		}
@@ -90,5 +89,21 @@ public class BankAccountDaoImpl implements BankAccountDao{
 		//updateBalance(newBalance,2);
 
 }
+
+	@Override
+	public int findBankAccountbyUserBank_ID(int bank_ID) throws SQLException {
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		String sql = "select bank_account_id from bankaccount where bank_ID=?";
+		PreparedStatement ps = conn.prepareCall(sql);
+		
+		ps.setInt(1,bank_ID);
+		ResultSet rs = ps.executeQuery();
+		int bankAccountNum = -1;
+		while (rs.next()) {
+			bankAccountNum = rs.getInt(1);
+		}
+		return bankAccountNum;
+	}
 
 }

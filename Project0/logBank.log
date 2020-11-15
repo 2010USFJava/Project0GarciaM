@@ -1,0 +1,6 @@
+[INFO ] 2020-11-15 11:44:52.454 [main] LogThis - New Customer created and added to database for: katfisher
+[INFO ] 2020-11-15 12:08:32.198 [main] LogThis - New Employee created and added to database for: miguelgarcia
+[INFO ] 2020-11-15 12:11:28.590 [main] LogThis - New Employee created and added to database for: miguel garcia
+[INFO ] 2020-11-15 12:11:28.627 [main] LogThis - New employee created for: miguel garcia
+[INFO ] 2020-11-15 13:28:28.057 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-15 13:30:41.176 [main] LogThis - Login failed

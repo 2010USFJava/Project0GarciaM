@@ -19,9 +19,9 @@ public class Menu {
 		System.out.println("Welcome to the Best Bank Ever app!");
 		System.out.println("**********************************");
 		System.out.println("Please enter a choice: ");
-		System.out.println("\t [c]ustomer's portal");
-		System.out.println("\t [e]mployee] portal");
-		System.out.println("\t [q]uit the app");
+		System.out.println("\t [C]ustomer's portal");
+		System.out.println("\t [E]mployee portal");
+		System.out.println("\t [Q]uit the app");
 		
 		String choice = scan.nextLine();
 		
@@ -47,10 +47,10 @@ public class Menu {
 	public static void customerPortal() {
 		System.out.println("Welcome Customer!");
 		System.out.println("**********************************");
-		System.out.println("\t[n]ew customer account request");
-		System.out.println("\t[l]ogin to access account");
-		System.out.println("\t[b]back to previous menu");
-		System.out.println("\t[q]uit the application");
+		System.out.println("\t[N]ew customer account");
+		System.out.println("\t[L]ogin to access account");
+		System.out.println("\t[B]back to previous menu");
+		System.out.println("\t[Q]uit the application");
 		String choice = scan.nextLine();
 		switch(choice.toLowerCase()) {
 		case "n":
@@ -83,8 +83,6 @@ public class Menu {
 	}
 		
 }
-	
-	
 	
 		
 }

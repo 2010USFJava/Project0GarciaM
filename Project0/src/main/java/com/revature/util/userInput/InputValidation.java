@@ -7,7 +7,8 @@ public class InputValidation {
 	}	
 	
 	public static boolean OverdrawCheck(double value) {
-		return GetInput.currentBankAccount.getAccountBalance()- value > 0;
+		return  true; //Login.currentBankAccount
+					//getAccountBalance() - value > 0;
 		
 	}
 	
