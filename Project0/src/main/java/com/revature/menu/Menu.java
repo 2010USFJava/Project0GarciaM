@@ -17,6 +17,7 @@ public class Menu {
 	
 	public static void startMenu() {
 		System.out.println("Welcome to the Best Bank Ever app!");
+		System.out.println("**********************************");
 		System.out.println("Please enter a choice: ");
 		System.out.println("\t [c]ustomer's portal");
 		System.out.println("\t [e]mployee] portal");
@@ -45,6 +46,7 @@ public class Menu {
 	
 	public static void customerPortal() {
 		System.out.println("Welcome Customer!");
+		System.out.println("**********************************");
 		System.out.println("\t[n]ew customer account request");
 		System.out.println("\t[l]ogin to access account");
 		System.out.println("\t[b]back to previous menu");
@@ -65,10 +67,6 @@ public class Menu {
 				customerPortal();
 			}
 			
-			break;
-		case "c":
-			TransacService.approvalCheck();
-			customerPortal();
 			break;
 		case "b":
 			startMenu();

@@ -33,7 +33,6 @@ public class TransactionMenu {
 				TransactionMenu.transactionMenu();
 				break;
 			case "t":
-				TransacService.transferAccount();
 				TransactionMenu.transactionMenu();
 				break;
 			case "b":

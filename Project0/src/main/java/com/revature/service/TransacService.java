@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
-import com.revature.util.BankData;
 import com.revature.util.CustomerList;
-import com.revature.util.FileUse;
 import com.revature.util.LogThis;
 import com.revature.util.userInput.GetInput;
 import com.revature.util.userInput.InputValidation;
@@ -22,90 +20,35 @@ public class TransacService {
 	public static void withdrawAccount() {
 		printBalance();
 		System.out.println("How much would you like to withdraw");
-		int amount = Integer.parseInt(scan.nextLine());
-		if (InputValidation.ValidateValue(amount) && InputValidation.OverdrawCheck(amount)) {
-			int newBalance = GetInput.currentBankAccount.getAccountBalance() - amount;
-			//set new balance in object in array
-			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
-			//increment transaction account in array
-			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setTransactionCount(GetInput.currentBankAccount.getTransactionCount()+1);
-			FileUse.writeBankFile(BankData.bankList);
-			printBalance();
-			LogThis.LogIt("info", "Balance was withdrawn $" + amount + "from " + GetInput.currentBankAccount.getAccountNumber());
+		double amount = Double.parseDouble(scan.nextLine());
 		}
-		else {
-			System.out.println("The value entered is not valid or will overdraw account please try again");
-			withdrawAccount();
-		}
+	
+	
+	
+	public static double deposit(double amount) {
+		//Get old balance
+		double newBalance = 0;
+		
+		newBalance += amount;
+		return newBalance;
 	}
 	
 	public static void depositAccount() {
 		printBalance();
 		System.out.println("Enter the amount you would like to deposit" );
-		int deposit = Integer.parseInt(scan.nextLine());
-		if  (InputValidation.ValidateValue(deposit)) {
-			int newBalance = GetInput.currentBankAccount.getAccountBalance() + deposit;
-			System.out.println("New Balance = $" + newBalance);
-			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
-			FileUse.writeBankFile(BankData.bankList);
-			LogThis.LogIt("info", "A deposit has been made " + deposit + "added to account " +GetInput.currentBankAccount.getAccountNumber());
-		}
-	}
-	
-	public static void transferAccount() {
-		System.out.println("Which account would you like to transfer too? Please enter account number: ");
-		int transferAccount = Integer.parseInt(scan.nextLine());
-		System.out.println("How much would you like to transfer?");
-		int transferAmount = Integer.parseInt(scan.nextLine());
-		if (InputValidation.ValidateValue(transferAmount) && InputValidation.OverdrawCheck(transferAmount)) {
-			int newBalance = GetInput.currentBankAccount.getAccountBalance() - transferAmount;
-			LogThis.LogIt("info","A transfer has been initiated balanced reduced " + transferAmount+ "from account " + GetInput.currentBankAccount.getAccountNumber());
-			BankData.findAccountByAccountNumber(GetInput.currentBankAccount.getAccountNumber()).setAccountBalance(newBalance);
-			BankAccount t = BankData.findAccountByAccountNumber(transferAccount);
-			BankData.findAccountByAccountNumber(transferAccount).setAccountBalance(t.getAccountBalance()+transferAmount);
-			FileUse.writeBankFile(BankData.bankList);
-			LogThis.LogIt("info","A transfer has been competed balanced sent " + transferAmount+ "to account " + t.getAccountNumber());
-		}
-		else {
-			System.out.println("The value entered is not valid or will overdraw account please try again");
-			transferAccount();
-		}
+		double deposit =Double.parseDouble(scan.nextLine());
 		
 	}
+	
+	
+		
 	
 	public static void printBalance() {
 		System.out.println("Current balance is: ");
 		System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
 	}
 	
-	public static void approvalCheck() {
-		System.out.println("Checking aproval status: ");
-		
-		if (GetInput.currentCustomer.getAccountNumber() > 1000) {
-			System.out.println("Status Approved ");
-		}else if (GetInput.currentCustomer.getAccountNumber() < 0) {
-			System.out.println("Your account has been denied please try again in the future");
-		}
-		else
-			System.out.println("Application still pending approval");
-		}
 	
-	public static int getHighest() {
-		int highestAccount = 1000;
-		for (BankAccount lb: BankData.bankList ) {
-			for (BankAccount lc: BankData.bankList  ) {
-				if(lb.getAccountNumber() > lc.getAccountNumber())
-					highestAccount = lb.getAccountNumber();
-				else
-					highestAccount = lc.getAccountNumber();
-			}
-		}		//increments the account number to next highest
-		highestAccount++;
-
-		
-		
-
-		
-		return highestAccount;
-	}
+	
+	
 }

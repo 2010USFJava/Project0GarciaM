@@ -3,7 +3,6 @@ package com.revature.beans;
 import java.io.Serializable;
 
 import com.revature.util.CustomerList;
-import com.revature.util.FileUse;
 import com.revature.util.LogThis;
 
 public class CustomerAccount implements Serializable{
@@ -14,10 +13,10 @@ public class CustomerAccount implements Serializable{
 	private static final long serialVersionUID = 8928222056777250302L;
 	private String userEmail;
 	private String userPassword;
-	private String userName;
-	private String userAddress;
+	private String userLastName;
+	private String userFirstName;
 	private String userPhone;
-	int jointAccount;
+	//int jointAccount;
 	//default empty account number
 	int accountNumber = 1000;
 	
@@ -28,19 +27,15 @@ public class CustomerAccount implements Serializable{
 		
 	}
 	
-	public CustomerAccount(String userEmail, String userPassword, String userName, String userAddress, String userPhone,
-			int jointAccount) {
+	public CustomerAccount(String userEmail, String userPassword, String userLastName, String userFirstName, String userPhone) {
 		super();
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
-		this.userName = userName;
-		this.userAddress = userAddress;
+		this.userLastName = userLastName;
+		this.userFirstName = userFirstName;
 		this.userPhone = userPhone;
-		this.jointAccount = jointAccount;
-		System.out.println(this.accountNumber);
-		CustomerList.userList.add(this);
-		FileUse.writeCustomerFile(CustomerList.userList);
-		LogThis.LogIt("info", "A new user account created for " + this.getUserName());
+		
+		LogThis.LogIt("info", "A new user account created for " + this.getUserLastName());
 	}
 
 	public int 	getAccountNumber() {
@@ -51,13 +46,6 @@ public class CustomerAccount implements Serializable{
 		this.accountNumber = accountNumber;
 	}
 	
-	public int getJointAccount() {
-		return jointAccount;
-	}
-
-	public void setJointAccount(int jointAccount) {
-		this.jointAccount = jointAccount;
-	}
 
 
 	public String getUserEmail() {
@@ -76,21 +64,22 @@ public class CustomerAccount implements Serializable{
 		this.userPassword = userPassword;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUserLastName() {
+		return userLastName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setuserLastName(String userName) {
+		this.userLastName = userName;
+	}
+	
+	public String getuserFirstName() {
+		return userFirstName;
+	}
+	
+	public void setuserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
 	}
 
-	public String getUserAddress() {
-		return userAddress;
-	}
-
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
-	}
 
 	public String getUserPhone() {
 		return userPhone;
@@ -104,9 +93,10 @@ public class CustomerAccount implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "CustomerAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName
-				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone 
-				+ ", jointAccountNumber=" + jointAccount + "Account Number"+ accountNumber +"]";
+		return "CustomerAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userLastName=" + userLastName
+				+ ", userFirstName=" + userFirstName
+				+ ", userPhone=" + userPhone 
+				+ ", jointAccountNumber=" + "Account Number"+ accountNumber +"]";
 	}
 
 	

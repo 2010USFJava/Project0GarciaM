@@ -1,78 +1,70 @@
-package com.revature.ServiceTest;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
-
-import com.revature.beans.BankAccount;
-
-
-public class TransacServiceTest {
-
-	@Test
-	public void testCheckBalance() {
-		BankAccount b = new BankAccount();
-		b.setAccountBalance(200);
-		
-		int actual = b.getAccountBalance();
-		assertEquals(200,actual);
-	}
-
-	@Test
-	public void testWithdrawAccount() {
-		BankAccount b = new BankAccount();
-		b.setAccountBalance(200);
-		
-		int actual = b.getAccountBalance();
-		assertEquals(200,actual);
-	}
-
-	@Test
-	public void testDepositAccount() {
-		
-		BankAccount b = new BankAccount();
-		b.setAccountBalance(200);
-		
-		int actual = b.getAccountBalance();
-		assertEquals(200,actual);
-	
-	}
-
-	@Test
-	public void testTransferAccount() {
-		BankAccount a = new BankAccount();
-		BankAccount b = new BankAccount();
-	
-		a.setAccountBalance(100);
-		b.setAccountBalance(100);
-		
-		
-		int actual1 = a.getAccountBalance();
-		int actual2 = b.getAccountBalance();
-		
-		assertEquals(100,actual1);
-		assertEquals(100,actual2);
-		
-		
-	}
-	@Test
-	public void testPrintBalance() {
-		
-	}
-
-	@Test
-	public void testApprovalCheck() {
-		BankAccount b = new BankAccount();
-		b.setAccountBalance(200);
-		
-		int actual = b.getAccountBalance();
-		assertEquals(200,actual);
-	}
-
-	@Test
-	public void testGetHighest() {
-		
-	}
-
-}
+//package com.revature.ServiceTest;
+//
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.fail;
+//
+//import org.junit.Test;
+//
+//import com.revature.beans.BankAccount;
+//import com.revature.service.TransacService;
+//
+//
+//public class TransacServiceTest {
+//	
+//	static BankAccount a = new BankAccount();
+//	static BankAccount b = new BankAccount();
+//
+//	@Test
+//	public void testCheckBalance() {
+//	
+//		b.setAccountBalance(200);
+//		
+//		double actual = b.getAccountBalance();
+//		assertEquals((int)200,(int)actual);
+//	}
+//
+//	@Test
+//	public void testWithdrawAccount() {
+//		
+//		b.setAccountBalance(200.0);
+//		
+//		double actual = withdraw(100.0);
+//		
+//		assertEquals((int)200,(int)actual);
+//	}
+//
+//	@Test
+//	public void testDeposit() {
+//	a.setAccountBalance(100.0);
+//	
+//	TransacService.deposit(100.0);
+//	double actual = 200;
+//	
+//	double expected = 200;
+//	
+//	assertEquals((int)expected,(int)actual);
+//	}
+//
+//		
+//		
+//	}
+//	@Test
+//	public void testPrintBalance() {
+//		
+//	}
+//
+//	@Test
+//	public void testApprovalCheck() {
+//		BankAccount b = new BankAccount();
+//		b.setAccountBalance(200);
+//		
+//		double actual = b.getAccountBalance();
+//		assertEquals(200,actual);
+//	}
+//
+//	@Test
+//	public void testGetHighest() {
+//		
+//	}
+//
+//}

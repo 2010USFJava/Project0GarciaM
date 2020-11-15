@@ -49,16 +49,5 @@ public class CustomerList {
 	
 }
 	
-	public static CustomerAccount findAccountbyjointAccount(int account) {
-		for (int i = 0; i < userList.size(); i++) {
-			int accountNumber= userList.get(i).getJointAccount();
-			if(accountNumber == account) {
-				return userList.get(i);
-			}
-		}
-		System.out.println("User not found");
-		Menu.startMenu();
-		return null;
-	
-}
+
 }

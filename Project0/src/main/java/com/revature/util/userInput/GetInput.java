@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
-import com.revature.util.BankData;
 import com.revature.util.CustomerList;
 import com.revature.util.LogThis;
 import com.revature.service.TransactionMenu;
@@ -13,7 +12,6 @@ public class GetInput {
 	public static CustomerAccount currentCustomer;
 	public static BankAccount currentBankAccount;
 	public static BankAccount transferBankAccount;
-	public static boolean isAdmin = false;
 
 	public static void getCustomerInfo() {
 		boolean validEmail = false;
@@ -22,7 +20,6 @@ public class GetInput {
 		String userEmail;
 		String phone;
 		int employeeNumber= 0;
-		int jNumAccount = 0;
 		
 		
 		
@@ -59,47 +56,21 @@ public class GetInput {
 		
 		System.out.println();
 		
-		
-
-			jNumAccount = 0;
-			System.out.println("Will this be a joint account? (y/n)");
-			String jAccount = scan.nextLine();
-			
-			if (jAccount.equalsIgnoreCase("y")) {
-				isJointAccount = true;
-				System.out.println("Please enter joint account number if it exists otherwise enter 0");
-				jNumAccount = Integer.parseInt(scan.nextLine());
-				int newJointNumber = BankData.findAccountByAccountNumber(jNumAccount).getAccountNumber();
-			}	
-			else if (jAccount.equalsIgnoreCase("n")) {
-				createCustomer(userEmail,password,name,address,phone,jNumAccount);
-				
-			}
-			
-			if (isJointAccount) {
-				if (jNumAccount > 0) {
-					int newJointNumber = BankData.findAccountByAccountNumber(jNumAccount).getAccountNumber();
-					createCustomer(userEmail,password,name,address,phone,newJointNumber);		
-				}
-			}	
+	
+	}
 			
 			
-		}
+			
 	
 	
-	
-	
-	
-	
-	public static void createCustomer(String userEmail, String password, String name, String address, String phone, int jNumAccount) {
-		CustomerAccount a = new CustomerAccount(userEmail,password,name,address,phone,jNumAccount);
-		LogThis.LogIt("info",a.getUserName() + " account was created!");
+	public static void createCustomer(String userEmail, String password, String name, String address, String phone) {
+		CustomerAccount a = new CustomerAccount(userEmail,password,name,address,phone);
+		LogThis.LogIt("info",a.getUserLastName() + " account was created!");
 		System.out.println(a); //check to test valid input remove later
 		System.out.println("Your application has been accepted please wait for aprovall");
 		
 	}
-	
+}
 	
 			
 				
-}

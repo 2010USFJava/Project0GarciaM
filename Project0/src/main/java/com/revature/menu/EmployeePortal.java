@@ -6,7 +6,6 @@ import com.revature.beans.CustomerAccount;
 import com.revature.service.TransacEmployee;
 import com.revature.service.TransacService;
 import com.revature.service.TransactionMenu;
-import com.revature.util.BankData;
 import com.revature.util.CustomerList;
 import com.revature.util.userInput.GetInput;
 import com.revature.util.userInput.Login;
@@ -19,20 +18,17 @@ public class EmployeePortal {
 	public static void employeeMenu(){
 
 				System.out.println("Welcome Employee");
-				System.out.println("Choose frome below");
-				System.out.println("\t [a]pprove or deny accounts");
+				System.out.println("**********************************");
+				System.out.println("Choose from below");
+				//System.out.println("\t [a]pprove or deny accounts");
 				System.out.println("\t [v]iew customer accounts");
 				System.out.println("\t [p]rint all bank accounts");
-				System.out.println("\t [e]dit customer accounts: ADMINS ONLY");
+				System.out.println("\t [e]dit customer accounts");
 				System.out.println("\t [b]ack to previous menu and logout");
 				System.out.println("\t [q]uit the application");
 				String choice = scan.nextLine();
 				
 				switch(choice.toLowerCase()) {
-				case "a":
-					TransacEmployee.approveAccounts();
-					 employeeMenu();
-					break;
 				case "v":
 					TransacEmployee.printCustomerAccounts();
 					 employeeMenu();
@@ -60,18 +56,7 @@ public class EmployeePortal {
 	}
 
 	public static void chooseAccount() {
-		int choice = -1;
-		System.out.println("Printing all  accounts");
-		for (CustomerAccount lc: CustomerList.userList) { 
-			System.out.println(lc);
-		}
-				
-					System.out.println("Please choose which to edit by account number");
-					choice = Integer.parseInt(scan.nextLine());
-									
-					System.out.println(BankData.findAccountByAccountNumber(choice));
-					GetInput.currentBankAccount = BankData.findAccountByAccountNumber(choice);
-					System.out.println(GetInput.currentBankAccount);
+		
 	}
 
 	
