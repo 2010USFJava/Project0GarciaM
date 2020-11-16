@@ -15,9 +15,9 @@ public interface BankAccountDao {
 	
 	public void updateBalance(double newBalance, int bank_ID) throws SQLException;
 	
-	public void deposit() throws SQLException;
+	public void depositAccount() throws SQLException;
 	
-	public void withdraw() throws SQLException;
+	public void withdrawAccount() throws SQLException;
 
 	public int findBankAccountbyUserBank_ID(int bank_ID) throws SQLException;
 

@@ -2,7 +2,6 @@ package com.revature.beans;
 
 import java.io.Serializable;
 
-import com.revature.util.CustomerList;
 import com.revature.util.LogThis;
 
 public class CustomerAccount implements Serializable{
@@ -11,42 +10,46 @@ public class CustomerAccount implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8928222056777250302L;
-	private String userEmail;
-	private String userPassword;
+	
+	private int userID;
+	private int bankID;
 	private String userLastName;
 	private String userFirstName;
+	private String userEmail;
+	private String userPassword;
 	private String userPhone;
-	//int jointAccount;
-	//default empty account number
-	int accountNumber = 1000;
-	
 	
 	public CustomerAccount() {
 		super();
-		LogThis.LogIt("info", "A new empty account created");
-		
 	}
 	
-	public CustomerAccount(String userEmail, String userPassword, String userLastName, String userFirstName, String userPhone) {
+	public CustomerAccount(int userID, int bankID,String userLastName, String userFirstName, String userEmail,
+				String userPassword,  String userPhone) {
 		super();
+		this.userID = userID;
+		this.bankID = bankID;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
 		this.userLastName = userLastName;
 		this.userFirstName = userFirstName;
 		this.userPhone = userPhone;
-		
-		LogThis.LogIt("info", "A new user account created for " + this.getUserLastName());
 	}
 
-	public int 	getAccountNumber() {
-		return accountNumber;
+	public int getUserID() {
+		return userID;
 	}
-	
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	
 
+	public void setUser_ID(int userID) {
+		this.userID = userID;
+	}
+
+	public int getBank_ID() {
+		return bankID;
+	}
+
+	public void setBank_ID(int bankID) {
+		this.bankID = bankID;
+	}
 
 	public String getUserEmail() {
 		return userEmail;
@@ -68,18 +71,17 @@ public class CustomerAccount implements Serializable{
 		return userLastName;
 	}
 
-	public void setuserLastName(String userName) {
-		this.userLastName = userName;
-	}
-	
-	public String getuserFirstName() {
-		return userFirstName;
-	}
-	
-	public void setuserFirstName(String userFirstName) {
-		this.userFirstName = userFirstName;
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
 	}
 
+	public String getUserFirstName() {
+		return userFirstName;
+	}
+
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
 
 	public String getUserPhone() {
 		return userPhone;
@@ -89,19 +91,16 @@ public class CustomerAccount implements Serializable{
 		this.userPhone = userPhone;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "CustomerAccount [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userLastName=" + userLastName
-				+ ", userFirstName=" + userFirstName
-				+ ", userPhone=" + userPhone 
-				+ ", jointAccountNumber=" + "Account Number"+ accountNumber +"]";
+		return "CustomerAccount [userID=" + userID + ", bankID=" + bankID + ", userEmail=" + userEmail
+				+ ", userPassword=" + userPassword + ", userLastName=" + userLastName + ", userFirstName="
+				+ userFirstName + ", userPhone=" + userPhone + "]";
 	}
-
 	
-	
+	 
 	
 	
 	
 }
+	

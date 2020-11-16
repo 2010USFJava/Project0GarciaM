@@ -1,11 +1,17 @@
 package com.revature.service;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.revature.dao.BankAccountDao;
+import com.revature.dao.BankAccountDaoImpl;
 import com.revature.menu.Menu;
+import com.revature.util.userInput.Login;
 public class TransactionMenu {
 	
 	public static void transactionMenu() {
+		BankAccountDao b = new BankAccountDaoImpl();
+		
 		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to the transaction menu");
@@ -13,7 +19,6 @@ public class TransactionMenu {
 		System.out.println("[c]check account balance");
 		System.out.println("[w]ithdraw from account");
 		System.out.println("[d]eposit into account");
-		System.out.println("[t]ransfer to another account");
 		System.out.println("[b]ack to previus menu");
 		System.out.println("[q]quit application");
 				
@@ -21,18 +26,28 @@ public class TransactionMenu {
 		
 		switch(choice.toLowerCase()){ 
 			case "c":
-				TransacService.checkBalance();
+			try {
+				System.out.println("Current balance: " +b.viewBalance(Login.currentBankAccount));
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 				TransactionMenu.transactionMenu();
 				break;	
 			case "w":
-				TransacService.withdrawAccount();
+			try {
+				b.withdrawAccount();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 				TransactionMenu.transactionMenu();
 				break;
 			case "d":
-				TransacService.depositAccount();
-				TransactionMenu.transactionMenu();
-				break;
-			case "t":
+			try {
+				b.depositAccount();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 				TransactionMenu.transactionMenu();
 				break;
 			case "b":

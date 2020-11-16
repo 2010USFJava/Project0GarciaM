@@ -2,17 +2,14 @@ package com.revature.util.userInput;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.revature.beans.BankAccount;
-import com.revature.beans.CustomerAccount;
 import com.revature.dao.BankAccountDao;
 import com.revature.dao.BankAccountDaoImpl;
 import com.revature.dao.CustomerDao;
 import com.revature.dao.CustomerDaoImpl;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
-import com.revature.util.CustomerList;
 import com.revature.util.LogThis;
-import com.revature.service.TransactionMenu;
+
 
 public class GetInput {
 	
@@ -54,7 +51,7 @@ public class GetInput {
 		do {
 			System.out.println("Please enter your phone number for your account: ");
 			phone = scan.nextLine();
-			if (phone.length() > 12 || !phone.contains(" ") || phone.length() < 10) {
+			if (phone.length() > 12 || phone.contains(" ") || phone.length() < 9) {
 				validPhone = false;
 				System.out.println("Please enter correct number of digits with no spaces");
 			}

@@ -7,13 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
 import com.revature.service.TransacService;
 import com.revature.util.ConnFactory;
+import com.revature.util.userInput.Login;
 
 public class BankAccountDaoImpl implements BankAccountDao{
 	public static ConnFactory cf = ConnFactory.getInstance();
+	public static Scanner scan = new Scanner(System.in);
 	
 	@Override
 	public void createBankAccount(double initialDeposit) throws SQLException {
@@ -30,13 +33,13 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	public List<BankAccount> viewAccountsByID(int bank_id) throws SQLException {
 		List<BankAccount> accountList = new ArrayList<BankAccount>();
 		Connection conn = cf.getConnection();
-		Statement stmt = conn.createStatement();
+		//Statement stmt = conn.createStatement();
 		String sql = "select * from bankaccount where bank_account_id=?";
 		PreparedStatement ps = conn.prepareCall(sql);
 		
 		ps.setInt(1,bank_id);
 		ResultSet rs = ps.executeQuery();
-		BankAccount a = null;
+		//BankAccount a = null;
 		while (rs.next()) {
 		BankAccount	b = new BankAccount(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4));
 			accountList.add(b);
@@ -64,8 +67,8 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	@Override
 	public void updateBalance(double newBalance, int bank_ID) throws SQLException {
 		Connection conn = cf.getConnection();
-		Statement stmt = conn.createStatement();
-		String sql = "update bankaccount set balance=? where bank_ID=? ";
+		//Statement stmt = conn.createStatement();
+		String sql = "update bankaccount set accountbalance=? where bank_account_id=? ";
 		PreparedStatement ps = conn.prepareCall(sql);
 		ps.setDouble(1, newBalance);
 		ps.setInt(2, bank_ID);
@@ -74,19 +77,23 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	}
 
 	@Override
-	public void deposit() throws SQLException {
-		double initialBalance = viewBalance(2);
-		double newBalance = TransacService.deposit(initialBalance);
-		updateBalance(newBalance,2);
+	public void depositAccount() throws SQLException {
+		System.out.println("Current balance $" + viewBalance(Login.currentBankAccount));
+		System.out.println("How much would you like to deposit? ");
+		double amount = Double.parseDouble(scan.nextLine());
+		double newBalance = TransacService.deposit(amount);
+		updateBalance(newBalance,Login.currentBankAccount);
 			
 		
 	}
 	
 	@Override
-	public void withdraw() throws SQLException {
-		double initialBalance = viewBalance(2);
-		//double newBalance = TransacService.withdraw(initialBalance);
-		//updateBalance(newBalance,2);
+	public void withdrawAccount() throws SQLException {
+		System.out.println("Current balance" + viewBalance(Login.currentBankAccount));
+		System.out.println("How much would you like to withdraw? ");
+		double amount = Double.parseDouble(scan.nextLine());
+		double newBalance = TransacService.withdraw(amount);
+		updateBalance(newBalance,Login.currentBankAccount);
 
 }
 
@@ -94,7 +101,7 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	public int findBankAccountbyUserBank_ID(int bank_ID) throws SQLException {
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		String sql = "select bank_account_id from bankaccount where bank_ID=?";
+		String sql = "select bank_account_id from bankaccount where bank_account_ID=?";
 		PreparedStatement ps = conn.prepareCall(sql);
 		
 		ps.setInt(1,bank_ID);

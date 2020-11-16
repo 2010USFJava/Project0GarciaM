@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 
 import com.revature.util.LogThis;
-import com.revature.service.TransacEmployee;
 import com.revature.service.TransacService;
 import com.revature.service.TransactionMenu;
 import com.revature.util.userInput.GetInput;
@@ -16,13 +15,13 @@ public class Menu {
 	public static boolean login = false;
 	
 	public static void startMenu() {
-		System.out.println("Welcome to the Best Bank Ever app!");
+		System.out.println("Welcome to the Best Bank Ever 2.0 app!");
 		System.out.println("**********************************");
 		System.out.println("Please enter a choice: ");
 		System.out.println("\t [C]ustomer's portal");
 		System.out.println("\t [E]mployee portal");
 		System.out.println("\t [Q]uit the app");
-		
+		System.out.println("**********************************");
 		String choice = scan.nextLine();
 		
 		switch(choice.toLowerCase()) {
@@ -51,6 +50,7 @@ public class Menu {
 		System.out.println("\t[L]ogin to access account");
 		System.out.println("\t[B]back to previous menu");
 		System.out.println("\t[Q]uit the application");
+		System.out.println("**********************************");
 		String choice = scan.nextLine();
 		switch(choice.toLowerCase()) {
 		case "n":
@@ -60,9 +60,11 @@ public class Menu {
 		case "l":
 			
 			if(Login.loginCustomer() == true) {
-				TransactionMenu.transactionMenu();	
+				TransactionMenu.transactionMenu();
+				System.out.println("Login Sucessful!");
+				System.out.println("Current account number: " + Login.currentBankAccount);
 			}
-			else {	System.out.println("Login Failed returning to menu or account not approved yet");
+			else {	System.out.println("Login Failed returning to menu");
 				LogThis.LogIt("info", "Customer login failed");
 				customerPortal();
 			}

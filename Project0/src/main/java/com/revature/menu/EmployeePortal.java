@@ -5,10 +5,8 @@ import java.util.Scanner;
 import com.revature.beans.CustomerAccount;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
-import com.revature.service.TransacEmployee;
 import com.revature.service.TransacService;
 import com.revature.service.TransactionMenu;
-import com.revature.util.CustomerList;
 import com.revature.util.userInput.GetInput;
 import com.revature.util.userInput.Login;
 
@@ -28,7 +26,7 @@ public class EmployeePortal {
 				System.out.println("[L]ogin employee account");
 				System.out.println("[B]ack to main menu");
 				System.out.println("[Q]uit the app");
-				
+				System.out.println("**********************************");
 				String choice = scan.nextLine();
 				
 				switch(choice.toLowerCase()) {
@@ -77,7 +75,7 @@ public class EmployeePortal {
 		
 		switch (choice.toLowerCase()) {
 			case "d":
-				TransacEmployee.deleteAccount();
+				//TransacEmployee.deleteAccount();
 				AdminMenu();	
 			break;
 			case "e":
