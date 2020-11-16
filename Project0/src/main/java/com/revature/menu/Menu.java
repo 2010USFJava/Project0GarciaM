@@ -15,9 +15,10 @@ public class Menu {
 	public static boolean login = false;
 	
 	public static void startMenu() {
-		System.out.println("Welcome to the Best Bank Ever 2.0 app!");
+		System.out.println("Welcome to the Best Bank Ever v2.0 app!");
+		System.out.println();
 		System.out.println("**********************************");
-		System.out.println("Please enter a choice: ");
+		System.out.println("\t Please enter a choice: ");
 		System.out.println("\t [C]ustomer's portal");
 		System.out.println("\t [E]mployee portal");
 		System.out.println("\t [Q]uit the app");
@@ -60,12 +61,13 @@ public class Menu {
 		case "l":
 			
 			if(Login.loginCustomer() == true) {
+				
 				TransactionMenu.transactionMenu();
 				System.out.println("Login Sucessful!");
+				login = true;
 				System.out.println("Current account number: " + Login.currentBankAccount);
 			}
-			else {	System.out.println("Login Failed returning to menu");
-				LogThis.LogIt("info", "Customer login failed");
+			else {	System.out.println("Returning to menu\n");
 				customerPortal();
 			}
 			

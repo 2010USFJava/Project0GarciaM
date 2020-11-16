@@ -6,28 +6,33 @@ import java.util.Scanner;
 import com.revature.dao.BankAccountDao;
 import com.revature.dao.BankAccountDaoImpl;
 import com.revature.menu.Menu;
+import com.revature.util.LogThis;
 import com.revature.util.userInput.Login;
 public class TransactionMenu {
 	
 	public static void transactionMenu() {
 		BankAccountDao b = new BankAccountDaoImpl();
+		boolean login = false;
 		
 		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to the transaction menu");
+		System.out.println("**********************************");
 		System.out.println("Please make a choice");
 		System.out.println("[c]check account balance");
 		System.out.println("[w]ithdraw from account");
-		System.out.println("[d]eposit into account");
-		System.out.println("[b]ack to previus menu");
-		System.out.println("[q]quit application");
+		System.out.println("[m]ake a deposit into account");
+		System.out.println("[d]elete all accounts");
+		System.out.println("[b]ack to previous menu");
+		System.out.println("[q]uit application");
+		System.out.println("**********************************");
 				
 		String choice = scan.nextLine();
 		
 		switch(choice.toLowerCase()){ 
 			case "c":
 			try {
-				System.out.println("Current balance: " +b.viewBalance(Login.currentBankAccount));
+				System.out.println("Current balance: $" +b.viewBalance(Login.currentBankAccount));
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -42,7 +47,7 @@ public class TransactionMenu {
 			}
 				TransactionMenu.transactionMenu();
 				break;
-			case "d":
+			case "m":
 			try {
 				b.depositAccount();
 			} catch (SQLException e) {
@@ -50,8 +55,26 @@ public class TransactionMenu {
 			}
 				TransactionMenu.transactionMenu();
 				break;
+			case "d":
+			try {
+				if (b.viewBalance(Login.currentBankAccount)> 0) {
+					System.out.println("You must empty account first before deleting");
+					TransactionMenu.transactionMenu();
+				}
+				else
+					TransacService.deleteBothAccounts(Login.currentBankAccount);
+					Menu.startMenu();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				break;
 			case "b":
-				Menu.startMenu();
+					LogThis.LogIt("info", "Customer has logged out number: " + Login.currentCustomer);
+					Login.currentCustomer = 0;
+					login = false;
+				
+					Menu.customerPortal();
 				break;
 			case "q":
 				System.out.println("Thanks for banking with us");
@@ -64,4 +87,5 @@ public class TransactionMenu {
 	}
 		
 }
+
 }

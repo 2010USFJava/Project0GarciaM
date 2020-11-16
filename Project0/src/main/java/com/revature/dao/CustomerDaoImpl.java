@@ -59,26 +59,27 @@ public class CustomerDaoImpl implements CustomerDao{
 		Connection conn = cf.getConnection();
 		Statement stmt1 = conn.createStatement();
 		
-		String sql1 = "select user_id from customer where email =?";	
-		PreparedStatement ps1 = conn.prepareCall(sql1);
-		ps1.setString(1,email);
-		ResultSet rs1 = ps1.executeQuery();
-		while(rs1.next()) {
-			cus1 = rs1.getInt(1);
+		String sql = "select user_id from customer where email =?";	
+		PreparedStatement ps = conn.prepareCall(sql);
+		ps.setString(1,email);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+		cus1 = rs.getInt(1);
 			
-		Statement stmt2 = conn.createStatement();
-		String sql2 =  "select user_id from customer where userpassword =?";
-		PreparedStatement ps2 = conn.prepareCall(sql2);
-		ps2.setString(1,password);
-		ResultSet rs2 = ps2.executeQuery();
+		Statement stmt = conn.createStatement();
+		sql =  "select user_id from customer where userpassword =?";
+		ps = conn.prepareCall(sql);
+		ps.setString(1,password);
+		rs = ps.executeQuery();
 		
-		while(rs2.next()) {
-			cus2 = rs2.getInt(1);
+		while(rs.next()) {
+			cus2 = rs.getInt(1);
 		}
 		if (cus1 == cus2) {
 			LogThis.LogIt("info", "Customer logged in number: " + cus1);
-			Login.currentBankAccount = b.findBankAccountbyUserBank_ID(cus1);
+			Login.currentBankAccount = b.findBankAccountbyUserBankID(cus1);
 			System.out.println("current account: " + Login.currentBankAccount);
+			Login.currentCustomer = cus1;
 			return true;
 		}
 		else
@@ -105,6 +106,18 @@ public class CustomerDaoImpl implements CustomerDao{
 		}
 		return accountList;
 		}
+
+	@Override
+	public void deleteCustomer(int bankID) throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "delete from customer where bank_id =?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		ps.setInt(1, bankID);
+		ps.executeUpdate();	
+		LogThis.LogIt("info", " Customer deleted from database for account number: " + bankID );
+		
+	}
 }
 
 		

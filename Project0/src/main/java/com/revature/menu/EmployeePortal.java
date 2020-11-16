@@ -7,6 +7,7 @@ import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
 import com.revature.service.TransacService;
 import com.revature.service.TransactionMenu;
+import com.revature.util.LogThis;
 import com.revature.util.userInput.GetInput;
 import com.revature.util.userInput.Login;
 
@@ -21,11 +22,11 @@ public class EmployeePortal {
 
 				System.out.println("Welcome Employee");
 				System.out.println("**********************************");
-				System.out.println("Choose from below");
-				System.out.println("[C]reate employee account");
-				System.out.println("[L]ogin employee account");
-				System.out.println("[B]ack to main menu");
-				System.out.println("[Q]uit the app");
+				System.out.println("\tChoose from below");
+				System.out.println("\t[C]reate employee account");
+				System.out.println("\t[L]ogin employee account");
+				System.out.println("\t[B]ack to main menu");
+				System.out.println("\t[Q]uit the app");
 				System.out.println("**********************************");
 				String choice = scan.nextLine();
 				
@@ -38,6 +39,7 @@ public class EmployeePortal {
 					if (login == false)
 						if(Login.employeeLogin()) {
 							System.out.println("Login Sucessful");
+							login = true;
 							AdminMenu();
 						}
 						else
@@ -45,7 +47,6 @@ public class EmployeePortal {
 					
 					break;
 				case "b":
-					login = false;
 					Menu.startMenu();
 					break;
 				case "q":
@@ -66,22 +67,31 @@ public class EmployeePortal {
 	
 	public static void AdminMenu() {
 		chooseAccount();
-		System.out.println("What would you like to do ADMIN?");
-		System.out.println("\t [D]ELETE an account");
-		System.out.println("\t [E]DIT an account");
+		System.out.println("What would you like to do Admin?");
+		System.out.println("**********************************");
+		System.out.println("\t [D]elete an account");
+		System.out.println("\t [M]anage user information");
+		System.out.println("\t [C]hange bank account info");
+		System.out.println("\t [E]dit a balance for an account");
 		System.out.println("\t [B]ack to previous menu");
 		System.out.println("\t [Q]uit application");
+		System.out.println("**********************************");
 		String choice = scan.nextLine();
 		
 		switch (choice.toLowerCase()) {
 			case "d":
-				//TransacEmployee.deleteAccount();
+				TransacService.deleteBothAccounts(TransacService.getAccount());
 				AdminMenu();	
 			break;
 			case "e":
+				TransacService.getAccount();
 				TransactionMenu.transactionMenu();
 				AdminMenu();
 			case "b":
+				login = false;
+				System.out.println("You have been logged out");
+				LogThis.LogIt("info", "Employee has been logged out numer: " + Login.currentEmployee);
+				Login.currentEmployee = 0;
 				employeeMenu();
 				break;
 			case "q":

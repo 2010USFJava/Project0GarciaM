@@ -20,12 +20,14 @@ public class GetInput {
 		CustomerDao c = new CustomerDaoImpl();
 		BankAccountDao b = new BankAccountDaoImpl();
 		
+		boolean valid = false;
 		boolean validEmail = false;
 		boolean validPhone = false;
 		String userEmail;
 		String phone;
 		String fName;
 		String lName;
+		String password;
 		double initialDeposit;
 		
 		do {
@@ -39,14 +41,26 @@ public class GetInput {
 			}
 		} while(validEmail == false);
 		
-		System.out.println("Please enter your password for your account: ");
-		String password = scan.nextLine();
-		
+		do {
+			
+			System.out.println("Please enter your password for your account at least 8 characters no spaces: ");
+			password = scan.nextLine();
+			if (password.length() < 8 || password.contains(" ")) { 
+				valid = false;
+				System.out.println("Invalid input please try again");
+			}
+			else {
+				valid = true;
+			}
+			
+		} while (!valid);
 		System.out.println("Please enter your first name: ");
 		fName = scan.nextLine();
 		
 		System.out.println("Please enter your last name: ");
 		lName = scan.nextLine();
+		
+		System.out.println();
 		
 		do {
 			System.out.println("Please enter your phone number for your account: ");
@@ -83,6 +97,8 @@ public class GetInput {
 		String userEmail;
 		String fName;
 		String lName;
+		String password;
+		boolean valid;
 		
 		do {
 			System.out.println("Please enter a email for your account this will be your username: ");
@@ -95,8 +111,19 @@ public class GetInput {
 			}
 		} while(validEmail == false);
 		
-		System.out.println("Please enter your password for your account: ");
-		String password = scan.nextLine();
+		do {
+			
+			System.out.println("Please enter your password for your account at least 8 characters no spaces: ");
+			password = scan.nextLine();
+			if (password.length() < 8 || password.contains(" ")) { 
+				valid = false;
+				System.out.println("Invalid input please try again");
+			}
+			else {
+				valid = true;
+			}
+		}
+			while (!valid);
 		
 		System.out.println("Please enter your first name: ");
 		fName = scan.nextLine();

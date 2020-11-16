@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import com.revature.util.ConnFactory;
 import com.revature.util.LogThis;
+import com.revature.util.userInput.Login;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 	ConnFactory cf = ConnFactory.getInstance();
@@ -32,26 +33,25 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		int emp2 = -2;
 		
 		Connection conn = cf.getConnection();
-		Statement stmt1 = conn.createStatement();
 		
-		String sql1 = "select employeenumber from employee where email =?";	
-		PreparedStatement ps1 = conn.prepareCall(sql1);
-		ps1.setString(1,email);
-		ResultSet rs1 = ps1.executeQuery();
-		while(rs1.next()) {
-			emp1 = rs1.getInt(1);
+		String sql = "select employeenumber from employee where email =?";	
+		PreparedStatement ps = conn.prepareCall(sql);
+		ps.setString(1,email);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			emp1 = rs.getInt(1);
 			
-		Statement stmt2 = conn.createStatement();
-		String sql2 =  "select employeenumber from employee where employeepassword =?";
-		PreparedStatement ps2 = conn.prepareCall(sql2);
-		ps2.setString(1,password);
-		ResultSet rs2 = ps2.executeQuery();
+		sql =  "select employeenumber from employee where employeepassword =?";
+		ps = conn.prepareCall(sql);
+		ps.setString(1,password);
+		rs = ps.executeQuery();
 		
-		while(rs2.next()) {
-			emp2 = rs2.getInt(1);
+		while(rs.next()) {
+			emp2 = rs.getInt(1);
 		}
 		if (emp1 == emp2) {
 			LogThis.LogIt("info", "Employee logged in number: " + emp1);
+			Login.currentEmployee = emp1;
 			return true;
 		}
 		else
@@ -60,4 +60,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return false;
 	
 	}
+
+	
+	
 }
