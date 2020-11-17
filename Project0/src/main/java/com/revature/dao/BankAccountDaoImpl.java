@@ -199,14 +199,26 @@ public class BankAccountDaoImpl implements BankAccountDao{
 		int baccount = TransacService.getAccount();
 		TransacService.changeBankAccount(getBankAccount(baccount));
 		BankAccount ban = TransacService.currentBankAccount;
-		System.out.println(ban);
 		ps.setDouble(1, ban.getAccountBalance());
 		ps.setInt(2, ban.getTransactionCount());
 		ps.setString(3, ban.getAccountType());
 		ps.setInt(4, baccount);
 		ps.executeUpdate();
 	}
+
+	@Override
+	public int countNumberAccount() throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "select counts() ";
+		PreparedStatement ps = conn.prepareStatement(sql);	
+		int retcount =0;
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			retcount = rs.getInt(1);
+		}
+		return retcount;
+	}
 	
 }
-		
+	
 

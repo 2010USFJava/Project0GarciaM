@@ -22,11 +22,12 @@ public class TransacService {
 	static CustomerDao c = new CustomerDaoImpl();
 	
 	static Scanner scan = new Scanner(System.in);
-	public static void checkBalance() {
-		System.out.println("The balance of you account is: $");
-		//System.out.println(GetInput.currentBankAccount.getAccountBalance());
-	}
 	
+//	public static void checkBalance() {
+//		System.out.println("The balance of you account is: $");
+//		//System.out.println(GetInput.currentBankAccount.getAccountBalance());
+//	}
+//	
 	public static double withdraw(double amount) {
 		double balance = -1;
 		
@@ -85,10 +86,10 @@ public class TransacService {
 	}
 		
 	
-	public static void printBalance() {
-		System.out.println("Current balance is: ");
-		//System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
-	}
+//	public static void printBalance() {
+//		System.out.println("Current balance is: ");
+//		//System.out.println("$"+GetInput.currentBankAccount.getAccountBalance());
+//	}
 	
 	public static void changeBankAccount(BankAccount b) {
 		String choice;

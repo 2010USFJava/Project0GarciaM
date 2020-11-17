@@ -30,5 +30,7 @@ public interface BankAccountDao {
 	public void addTransactionCount(int bankID) throws SQLException;
 	
 	public void editBankAccount() throws SQLException;
+	
+	public int countNumberAccount() throws SQLException;
 
 }

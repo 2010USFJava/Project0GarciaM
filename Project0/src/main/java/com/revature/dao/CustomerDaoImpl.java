@@ -133,7 +133,6 @@ public class CustomerDaoImpl implements CustomerDao{
 		TransacService.changeCustomer(getAccountByID(account));
 		//  goes back into database changed object
 		CustomerAccount cus = TransacService.currentCustomer;
-		System.out.println(cus);
 		
 	
 		ps.setString(1, cus.getUserFirstName());

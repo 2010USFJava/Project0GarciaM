@@ -80,6 +80,7 @@ public class EmployeePortal {
 		System.out.println("\t [D]elete an account");
 		System.out.println("\t [V]iew all customer accounts");
 		System.out.println("\t [S]ee all bank accounts");
+		System.out.println("\t [T]otal number of bank accounts");
 		System.out.println("\t [M]anage customer information");
 		System.out.println("\t [C]hange bank account info");
 		System.out.println("\t [E]dit a balance for an account");
@@ -116,6 +117,15 @@ public class EmployeePortal {
 			}
 				AdminMenu();
 				break;
+			case "t":
+			try {
+				System.out.println("Total number of bank accounts: ");
+				System.out.println(ban.countNumberAccount());
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				AdminMenu();	
 			case "m":
 			try {
 				
