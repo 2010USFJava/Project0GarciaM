@@ -3,6 +3,7 @@ package com.revature.menu;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
 import com.revature.dao.BankAccountDao;
 import com.revature.dao.BankAccountDaoImpl;
@@ -78,6 +79,7 @@ public class EmployeePortal {
 		System.out.println("**********************************");
 		System.out.println("\t [D]elete an account");
 		System.out.println("\t [V]iew all customer accounts");
+		System.out.println("\t [S]ee all bank accounts");
 		System.out.println("\t [M]anage customer information");
 		System.out.println("\t [C]hange bank account info");
 		System.out.println("\t [E]dit a balance for an account");
@@ -103,6 +105,17 @@ public class EmployeePortal {
 				AdminMenu();
 				
 				break;
+			case "s":
+			try {
+				for(BankAccount ba: ban.viewAllAccounts()) {
+					System.out.println(ba);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				AdminMenu();
+				break;
 			case "m":
 			try {
 				
@@ -115,8 +128,8 @@ public class EmployeePortal {
 				break;
 			case "c":
 				try {
-					//ban.editBankAccount()
-					
+					ban.editBankAccount();
+					AdminMenu();
 				} catch (Exception e) {
 					// TODO: handle exception
 				}

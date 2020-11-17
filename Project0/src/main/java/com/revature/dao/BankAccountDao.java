@@ -9,7 +9,9 @@ public interface BankAccountDao {
 	
 	public void createBankAccount(double b) throws SQLException;
 	
-	public List<BankAccount> viewAccountsByID (int bankID) throws SQLException;
+	public List<BankAccount> viewAllAccounts() throws SQLException;
+	
+	public BankAccount getBankAccount(int bankID) throws SQLException;
 	
 	public double viewBalance(int bankID) throws SQLException;
 	
@@ -27,6 +29,6 @@ public interface BankAccountDao {
 	
 	public void addTransactionCount(int bankID) throws SQLException;
 	
-	public void editBankAccount(BankAccount account) throws SQLException;
+	public void editBankAccount() throws SQLException;
 
 }

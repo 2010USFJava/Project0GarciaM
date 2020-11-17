@@ -10,6 +10,7 @@ import com.revature.dao.BankAccountDaoImpl;
 import com.revature.dao.CustomerDao;
 import com.revature.dao.CustomerDaoImpl;
 import com.revature.menu.EmployeePortal;
+import com.revature.util.LogThis;
 import com.revature.util.userInput.Login;
 
 public class TransacService {
@@ -79,6 +80,7 @@ public class TransacService {
 		System.out.println("Which account would you like to choose");
 		int edit = Integer.parseInt(scan.nextLine());
 		Login.currentBankAccount = edit;
+
 		return  edit;
 	}
 		
@@ -91,6 +93,7 @@ public class TransacService {
 	public static void changeBankAccount(BankAccount b) {
 		String choice;
 		System.out.println(b);
+		
 		do {
 		System.out.println("**********************************");
 		
@@ -109,18 +112,19 @@ public class TransacService {
 					System.out.println("What do you want to change the account balance to? ");
 					edit = scan.nextLine();
 					b.setAccountBalance(Double.parseDouble(edit));
+					LogThis.LogIt("info", "Bank Account  " + b.getAccountNumber() + " changed account balance to: " + b.getAccountBalance());
 					break;
 				case "t":
 					System.out.println("What do you want to set the transaction count to? ");
 					edit = scan.nextLine();
 					b.setTransactionCount(Integer.parseInt(edit));
-					
+					LogThis.LogIt("info", "Bank Account " + b.getAccountNumber() + " changed transactions: " + b.getTransactionCount());
 					break;
 				case "s":
 					System.out.println("What type account would you like to set? ");
 					edit = scan.nextLine();
 					b.setAccountType(edit);
-			
+					LogThis.LogIt("info", "Bank Account " + b.getAccountNumber() + " changed bank account type: " + b.getAccountType());
 					break;
 				case "b":
 					
@@ -135,6 +139,7 @@ public class TransacService {
 				}
 			
 		}while (!choice.equals("r"));
+		
 		System.out.println(b);
 		currentBankAccount = b;
 	}
@@ -163,30 +168,31 @@ public class TransacService {
 					System.out.println("What do you want the last name to be? ");
 					edit = scan.nextLine();
 					c.setUserLastName(edit);
+					LogThis.LogIt("info", "Customer " + c.getUserID() + " changed last name to: " + c.getUserLastName());
 					break;
 				case "f":
 					System.out.println("What do you want the first name to be? ");
 					edit = scan.nextLine();
 					c.setUserFirstName(edit);
-					
+					LogThis.LogIt("info", "Customer " + c.getUserID() + " changed first name to: " + c.getUserFirstName());
 					break;
 				case "e":
 					System.out.println("What do you want the email to be? ");
 					edit = scan.nextLine();
 					c.setUserEmail(edit);
-			
+					LogThis.LogIt("info", "Customer " + c.getUserID() + " changed email to: " + c.getUserEmail());
 					break;
 				case "p":
 					System.out.println("What do you want the password to be? ");
 					edit = scan.nextLine();
 					c.setUserPassword(edit);
-					
+					LogThis.LogIt("info", "Customer " + c.getUserID() + " changed password to: " + c.getUserPassword());
 					break;
 				case "c":
 					System.out.println("What do you want the phone number to be? ");
 					edit = scan.nextLine();
 					c.setUserPhone(edit);
-					
+					LogThis.LogIt("info", "Customer " + c.getUserID() + " changed phone to: " + c.getUserPhone());
 					break;
 				case "b":
 					

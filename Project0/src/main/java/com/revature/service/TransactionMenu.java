@@ -21,8 +21,8 @@ public class TransactionMenu {
 		System.out.println("Please make a choice");
 		System.out.println("[c]check account balance");
 		System.out.println("[w]ithdraw from account");
-		System.out.println("[m]ake a deposit into account");
-		System.out.println("[d]elete all accounts");
+		System.out.println("[d]eposit into account");
+		System.out.println("[r]emove an account");
 		System.out.println("[b]ack to previous menu");
 		System.out.println("[q]uit application");
 		System.out.println("**********************************");
@@ -47,7 +47,7 @@ public class TransactionMenu {
 			}
 				TransactionMenu.transactionMenu();
 				break;
-			case "m":
+			case "d":
 			try {
 				b.depositAccount();
 			} catch (SQLException e) {
@@ -55,7 +55,7 @@ public class TransactionMenu {
 			}
 				TransactionMenu.transactionMenu();
 				break;
-			case "d":
+			case "r":
 			try {
 				if (b.viewBalance(Login.currentBankAccount)> 0) {
 					System.out.println("You must empty account first before deleting");

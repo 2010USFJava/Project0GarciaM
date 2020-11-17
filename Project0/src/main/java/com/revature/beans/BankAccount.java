@@ -18,7 +18,7 @@ public class BankAccount implements Serializable{
 	
 	public BankAccount() {
 		super();
-		LogThis.LogIt("info", "A new empty account created ");
+		//LogThis.LogIt("info", "A new empty account created ");
 	}
 
 	public BankAccount(int accountNumber, double accountBalance, int transactionCount, String accountType) {
@@ -27,7 +27,7 @@ public class BankAccount implements Serializable{
 		this.accountType = accountType;
 		this.transactionCount = transactionCount;
 	
-		LogThis.LogIt("info", "A new bank account created for " + "AccountNum: " + this.getAccountNumber());
+		//LogThis.LogIt("info", "A new bank account created for " + "AccountNum: " + this.getAccountNumber());
 	}
 
 	public int getAccountNumber() {

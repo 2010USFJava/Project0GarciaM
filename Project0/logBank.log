@@ -54,3 +54,15 @@
 [INFO ] 2020-11-16 15:59:18.845 [main] LogThis - New Account created and added to database initial deposit: $5001.0
 [INFO ] 2020-11-16 15:59:19.125 [main] LogThis - New Customer created and added to database for: mike garcia
 [INFO ] 2020-11-16 15:59:39.210 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 16:50:10.378 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 16:56:59.804 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 17:09:24.935 [main] LogThis - Account 3 has withdrawn $4999.0 from their account
+[INFO ] 2020-11-16 17:12:47.568 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 17:14:32.853 [main] LogThis - Customer logged in number: 3
+[INFO ] 2020-11-16 17:15:58.987 [main] LogThis - New Account created and added to database initial deposit: $4000.0
+[INFO ] 2020-11-16 17:15:59.261 [main] LogThis - New Customer created and added to database for: kat fisher
+[INFO ] 2020-11-16 17:16:16.783 [main] LogThis - Customer logged in number: 4
+[INFO ] 2020-11-16 17:20:17.013 [main] LogThis - Customer logged in number: 4
+[INFO ] 2020-11-16 17:20:27.190 [main] LogThis - Account 4 has withdrawn $4000.0 from their account
+[INFO ] 2020-11-16 17:20:35.793 [main] LogThis -  Customer deleted from database for account number: 4
+[INFO ] 2020-11-16 17:20:36.073 [main] LogThis -  Bank Account deleted from database for account number: 4

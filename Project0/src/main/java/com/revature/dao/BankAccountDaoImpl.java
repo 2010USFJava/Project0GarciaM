@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.lang.Thread.State;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,28 +34,44 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	}
 	
 	@Override
-	public List<BankAccount> viewAccountsByID(int bankID) throws SQLException {
+	public List<BankAccount> viewAllAccounts() throws SQLException {
 		List<BankAccount> accountList = new ArrayList<BankAccount>();
 		Connection conn = cf.getConnection();
-		//Statement stmt = conn.createStatement();
-		String sql = "select * from bankaccount where bank_account_id=?";
+		String sql = "select * from bankaccount";
 		PreparedStatement ps = conn.prepareCall(sql);
 		
-		ps.setInt(1,bankID);
 		ResultSet rs = ps.executeQuery();
-		//BankAccount a = null;
+		BankAccount b = null;
 		while (rs.next()) {
-		BankAccount	b = new BankAccount(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4));
+			b = new BankAccount(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4));
 			accountList.add(b);
 		}
 		return accountList;
 	}
 
 	@Override
+	public BankAccount getBankAccount(int bankID) throws SQLException{
+		Connection conn = cf.getConnection();
+		String sql = "select * from bankaccount where bank_account_id=?";
+		PreparedStatement ps = conn.prepareCall(sql);
+		BankAccount ban = null;
+		ps.setInt(1, bankID);
+		
+		ResultSet rs =ps.executeQuery();
+		
+		while(rs.next()) {
+			ban = new BankAccount(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4));
+		}
+		
+		return ban;
+}
+
+	
+	
+	@Override
 	public double viewBalance(int bankID) throws SQLException {
 		double balance = 0;
 		Connection conn = cf.getConnection();
-		Statement stmt = conn.createStatement();
 		String sql = "select accountbalance from bankaccount where bank_account_id=?";
 		PreparedStatement ps = conn.prepareCall(sql);
 		
@@ -70,7 +87,6 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	@Override
 	public void updateBalance(double newBalance, int bankID) throws SQLException {
 		Connection conn = cf.getConnection();
-		//Statement stmt = conn.createStatement();
 		String sql = "update bankaccount set accountbalance=? where bank_account_id=? ";
 		PreparedStatement ps = conn.prepareCall(sql);
 		ps.setDouble(1, newBalance);
@@ -104,11 +120,11 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	public void withdrawAccount() throws SQLException {
 		System.out.println("Current balance: $" + viewBalance(Login.currentBankAccount));
 		double amount = 0;
-		double newBalance = 0;
+		double newBalance = -51;
 		
-		while (newBalance <= 0) {
+		while (newBalance < 0) {
 			do {
-				if (amount < 0 || newBalance < 0)
+				if (amount < 0 || newBalance < 0 && !(newBalance ==-51))
 					System.out.println("Invalid input or account will overdraw please try again");
 				System.out.println("How much would you like to withdraw? ");
 				 amount = Double.parseDouble(scan.nextLine());
@@ -175,14 +191,13 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	}
 
 	@Override
-	public void editBankAccount(BankAccount account) throws SQLException {
+	public void editBankAccount() throws SQLException {
 		Connection conn = cf.getConnection();	
 		String sql = "update bankaccount set accountbalance=?, transactioncount=?, accounttype=? where bank_account_id =? ";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		int baccount = TransacService.getAccount();
-		
-		
+		TransacService.changeBankAccount(getBankAccount(baccount));
 		BankAccount ban = TransacService.currentBankAccount;
 		System.out.println(ban);
 		ps.setDouble(1, ban.getAccountBalance());
