@@ -15,9 +15,11 @@ public interface CustomerDao {
 
 	public List<CustomerAccount> viewAllAccounts() throws SQLException;
 	
-	public List<CustomerAccount> viewAccountsByID(int bankID)  throws SQLException ;
+	public CustomerAccount getAccountByID(int bankID)  throws SQLException;
 	
 	public boolean customerLogin(String email, String password) throws SQLException;
 	
 	public void deleteCustomer(int bankID) throws SQLException;
+	
+	public void editCustomer() throws SQLException;
  }

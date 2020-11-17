@@ -1,0 +1,56 @@
+[INFO ] 2020-11-16 12:08:04.102 [main] LogThis - Employee logged in number: 2
+[INFO ] 2020-11-16 12:08:07.304 [main] LogThis - Employee has been logged out numer: 2
+[INFO ] 2020-11-16 12:09:46.952 [main] LogThis - New Account created and added to database initial deposit: $5000.0
+[INFO ] 2020-11-16 12:09:47.225 [main] LogThis - New Customer created and added to database for: miguel garcia
+[INFO ] 2020-11-16 12:10:14.422 [main] LogThis - New Account created and added to database initial deposit: $4000.0
+[INFO ] 2020-11-16 12:10:14.688 [main] LogThis - New Customer created and added to database for: sam fisher
+[INFO ] 2020-11-16 12:21:36.266 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 12:22:48.834 [main] LogThis - Customer Login failed email used sfisher@
+[INFO ] 2020-11-16 12:23:00.685 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 12:23:08.569 [main] LogThis - Account 2 has withdrawn $500.0 from their account
+[INFO ] 2020-11-16 12:23:18.914 [main] LogThis - Account 2 has deposited $100.0 from their account
+[INFO ] 2020-11-16 12:24:26.957 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 12:25:02.397 [main] LogThis - Account 2 has withdrawn $500.0 from their account
+[INFO ] 2020-11-16 12:25:27.171 [main] LogThis - Account 2 has deposited $-100.0 from their account
+[INFO ] 2020-11-16 12:30:20.737 [main] LogThis - Customer logged in number: 1
+[INFO ] 2020-11-16 12:30:48.551 [main] LogThis - Account 1 has withdrawn $1000.0 from their account
+[INFO ] 2020-11-16 12:31:00.703 [main] LogThis - Account 1 has deposited $4000.0 from their account
+[INFO ] 2020-11-16 12:31:03.266 [main] LogThis - Customer has logged out number: 1
+[INFO ] 2020-11-16 12:34:55.624 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 12:36:00.836 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 12:36:15.707 [main] LogThis - Account 2 has withdrawn $2000.0 from their account
+[INFO ] 2020-11-16 12:36:50.744 [main] LogThis - Account 2 has deposited $200.0 from their account
+[INFO ] 2020-11-16 12:36:55.218 [main] LogThis - Customer has logged out number: 2
+[INFO ] 2020-11-16 12:41:50.776 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 12:42:05.953 [main] LogThis -  Customer deleted from database for account number: 1
+[INFO ] 2020-11-16 12:42:06.247 [main] LogThis -  Bank Account deleted from database for account number: 1
+[INFO ] 2020-11-16 14:04:27.155 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:07:12.261 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:08:10.311 [main] LogThis - Account 2 has deposited $200.0 from their account
+[INFO ] 2020-11-16 14:08:20.489 [main] LogThis - Customer has logged out number: 0
+[INFO ] 2020-11-16 14:09:58.563 [main] LogThis - Customer Login failed email used mgarcia@gmail.com
+[INFO ] 2020-11-16 14:10:54.932 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:17:36.268 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:31:28.758 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:37:04.486 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:37:44.610 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:37:55.073 [main] LogThis - Customer has logged out number: 0
+[INFO ] 2020-11-16 14:38:11.030 [main] LogThis - Customer Login failed email used mgarcia@gmail.com
+[INFO ] 2020-11-16 14:38:56.446 [main] LogThis - Employee Login failed email usedasdfasf
+[INFO ] 2020-11-16 14:39:08.131 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:40:52.137 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:42:53.795 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:45:37.124 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:49:59.741 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 14:55:00.949 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 15:03:16.213 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 15:08:07.971 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 15:11:53.831 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 15:34:08.116 [main] LogThis - Employee logged in number: 1
+[INFO ] 2020-11-16 15:36:19.809 [main] LogThis - Employee has been logged out number: 1
+[INFO ] 2020-11-16 15:36:34.708 [main] LogThis - Customer logged in number: 2
+[INFO ] 2020-11-16 15:37:26.140 [main] LogThis - Account 2 has deposited $100.0 from their account
+[INFO ] 2020-11-16 15:37:32.492 [main] LogThis - Customer has logged out number: 2
+[INFO ] 2020-11-16 15:59:18.845 [main] LogThis - New Account created and added to database initial deposit: $5001.0
+[INFO ] 2020-11-16 15:59:19.125 [main] LogThis - New Customer created and added to database for: mike garcia
+[INFO ] 2020-11-16 15:59:39.210 [main] LogThis - Employee logged in number: 1

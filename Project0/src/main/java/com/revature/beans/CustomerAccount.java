@@ -23,7 +23,7 @@ public class CustomerAccount implements Serializable{
 		super();
 	}
 	
-	public CustomerAccount(int userID, int bankID,String userLastName, String userFirstName, String userEmail,
+	public CustomerAccount(int userID, int bankID,String userFirstName, String userLastName, String userEmail,
 				String userPassword,  String userPhone) {
 		super();
 		this.userID = userID;
@@ -93,9 +93,9 @@ public class CustomerAccount implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CustomerAccount [userID=" + userID + ", bankID=" + bankID + ", userEmail=" + userEmail
-				+ ", userPassword=" + userPassword + ", userLastName=" + userLastName + ", userFirstName="
-				+ userFirstName + ", userPhone=" + userPhone + "]";
+		return "Customer Account: userID = " + userID + ", bankID = " + bankID + ", Email = " + userEmail
+				+ ", Password = "  + userPassword + ", LastNam = " + userLastName + ", FirstName= "
+				+ userFirstName + ", Phone= " + userPhone;
 	}
 	
 	 

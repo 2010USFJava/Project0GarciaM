@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.revature.beans.BankAccount;
+import com.revature.beans.CustomerAccount;
 import com.revature.service.TransacService;
 import com.revature.util.ConnFactory;
 import com.revature.util.LogThis;
@@ -81,13 +82,20 @@ public class BankAccountDaoImpl implements BankAccountDao{
 	@Override
 	public void depositAccount() throws SQLException {
 		System.out.println("Current balance: $" + viewBalance(Login.currentBankAccount));
+		double amount;
+		do  {
+			amount = 0; //resets amount when invalid input is entered
+			if (amount < 0)
+				System.out.println("Invalid input please try again");
+			System.out.println("How much would you like to deposit? ");
+			amount = Double.parseDouble(scan.nextLine());
 		
-		System.out.println("How much would you like to deposit? ");
-		double amount = Double.parseDouble(scan.nextLine());
-		
+		} while (amount <= 0);
 		double newBalance = TransacService.deposit(amount);
 		updateBalance(newBalance,Login.currentBankAccount);
+		addTransactionCount(Login.currentBankAccount);
 		LogThis.LogIt("info", "Account " + Login.currentBankAccount +" has deposited $" + amount +" from their account");
+		System.out.println();
 			
 		
 	}
@@ -107,10 +115,10 @@ public class BankAccountDaoImpl implements BankAccountDao{
 			} while (amount < 0);
 			newBalance = TransacService.withdraw(amount);
 		}
-		
+		addTransactionCount(Login.currentBankAccount);
 		updateBalance(newBalance,Login.currentBankAccount);
 		LogThis.LogIt("info", "Account " + Login.currentBankAccount +" has withdrawn $" + amount +" from their account");
-
+		System.out.println();
 }
 
 	@Override
@@ -139,4 +147,51 @@ public class BankAccountDaoImpl implements BankAccountDao{
 		LogThis.LogIt("info", " Bank Account deleted from database for account number: " + bankID );
 	}
 
+	
+	@Override
+	public void addTransactionCount(int bankID) throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "update bankaccount set transactioncount = ? where bank_account_id=?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		int newCount = getTransactionCount()+ 1;
+		ps.setInt(1, newCount);
+		ps.setInt(2, bankID);
+		ps.executeUpdate();
+		
+	}
+
+	@Override
+	public int getTransactionCount() throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "select transactioncount from bankaccount where bank_account_id =?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		int transactCount = -1;
+		ps.setInt(1, Login.currentBankAccount);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			transactCount = rs.getInt(1);
+		}
+		return transactCount;
+	}
+
+	@Override
+	public void editBankAccount(BankAccount account) throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "update bankaccount set accountbalance=?, transactioncount=?, accounttype=? where bank_account_id =? ";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		int baccount = TransacService.getAccount();
+		
+		
+		BankAccount ban = TransacService.currentBankAccount;
+		System.out.println(ban);
+		ps.setDouble(1, ban.getAccountBalance());
+		ps.setInt(2, ban.getTransactionCount());
+		ps.setString(3, ban.getAccountType());
+		ps.setInt(4, baccount);
+		ps.executeUpdate();
+	}
+	
 }
+		
+

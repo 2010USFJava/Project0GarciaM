@@ -8,14 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.beans.BankAccount;
 import com.revature.beans.CustomerAccount;
+import com.revature.service.TransacService;
 import com.revature.util.ConnFactory;
 import com.revature.util.LogThis;
 import com.revature.util.userInput.Login;
 
 public class CustomerDaoImpl implements CustomerDao{
 	public static ConnFactory cf = ConnFactory.getInstance();
-	BankAccountDao b = new BankAccountDaoImpl();	
+	
+	static BankAccountDao b = new BankAccountDaoImpl();
+	static CustomerDao c = new CustomerDaoImpl();
 		
 	@Override
 	public void createNewCustomer(String firstName, String lastName, String email, String password, String phone) throws SQLException {
@@ -34,21 +38,18 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public List<CustomerAccount> viewAccountsByID(int bank_id) throws SQLException {
-		List<CustomerAccount> accountList = new ArrayList<CustomerAccount>();
+	public CustomerAccount getAccountByID(int bankid) throws SQLException {
 		Connection conn = cf.getConnection();
-		//Statement stmt = conn.createStatement();
 		String sql = "select * from customer where bank_ID=?";
 		PreparedStatement ps = conn.prepareCall(sql);
 		
-		ps.setInt(1,bank_id);
+		ps.setInt(1,bankid);
 		ResultSet rs = ps.executeQuery();
-		//BankAccount a = null;
+		CustomerAccount	acc = null;
 		while (rs.next()) {
-		CustomerAccount	b = new CustomerAccount(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-			accountList.add(b);
+		acc = new CustomerAccount(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
 		}
-		return accountList;
+		return acc;
 	}
 
 	@Override
@@ -117,6 +118,31 @@ public class CustomerDaoImpl implements CustomerDao{
 		ps.executeUpdate();	
 		LogThis.LogIt("info", " Customer deleted from database for account number: " + bankID );
 		
+	}
+
+	
+	
+	@Override
+	public void editCustomer() throws SQLException {
+		Connection conn = cf.getConnection();	
+		String sql = "update customer set firstname=?, lastname=?, email=?, userpassword=?, phone=? where bank_id =? ";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		int account = TransacService.getAccount();
+		Login.currentBankAccount = account;
+		TransacService.changeCustomer(getAccountByID(account));
+		//  goes back into database changed object
+		CustomerAccount cus = TransacService.currentCustomer;
+		System.out.println(cus);
+		
+	
+		ps.setString(1, cus.getUserFirstName());
+		ps.setString(2, cus.getUserLastName());
+		ps.setString(3, cus.getUserEmail());
+		ps.setString(4, cus.getUserPassword());
+		ps.setString(5, cus.getUserPhone());
+		ps.setInt(6, account);
+		ps.executeUpdate();
 	}
 }
 

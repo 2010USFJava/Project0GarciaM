@@ -1,8 +1,13 @@
 package com.revature.menu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.beans.CustomerAccount;
+import com.revature.dao.BankAccountDao;
+import com.revature.dao.BankAccountDaoImpl;
+import com.revature.dao.CustomerDao;
+import com.revature.dao.CustomerDaoImpl;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
 import com.revature.service.TransacService;
@@ -13,6 +18,8 @@ import com.revature.util.userInput.Login;
 
 public class EmployeePortal {
 	public static EmployeeDao emp = new EmployeeDaoImpl();
+	public static CustomerDao cus = new CustomerDaoImpl();
+	public static BankAccountDao ban = new BankAccountDaoImpl();
 	
 	public static boolean login = false;
 	static Scanner scan = new Scanner(System.in);
@@ -70,7 +77,8 @@ public class EmployeePortal {
 		System.out.println("What would you like to do Admin?");
 		System.out.println("**********************************");
 		System.out.println("\t [D]elete an account");
-		System.out.println("\t [M]anage user information");
+		System.out.println("\t [V]iew all customer accounts");
+		System.out.println("\t [M]anage customer information");
 		System.out.println("\t [C]hange bank account info");
 		System.out.println("\t [E]dit a balance for an account");
 		System.out.println("\t [B]ack to previous menu");
@@ -83,6 +91,37 @@ public class EmployeePortal {
 				TransacService.deleteBothAccounts(TransacService.getAccount());
 				AdminMenu();	
 			break;
+			case "v":
+			try {
+				for(CustomerAccount c: cus.viewAllAccounts()) {
+					System.out.println(c);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				AdminMenu();
+				
+				break;
+			case "m":
+			try {
+				
+				cus.editCustomer();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				AdminMenu();
+				break;
+			case "c":
+				try {
+					//ban.editBankAccount()
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				AdminMenu();
+				break;
 			case "e":
 				TransacService.getAccount();
 				TransactionMenu.transactionMenu();
@@ -90,7 +129,7 @@ public class EmployeePortal {
 			case "b":
 				login = false;
 				System.out.println("You have been logged out");
-				LogThis.LogIt("info", "Employee has been logged out numer: " + Login.currentEmployee);
+				LogThis.LogIt("info", "Employee has been logged out number: " + Login.currentEmployee);
 				Login.currentEmployee = 0;
 				employeeMenu();
 				break;

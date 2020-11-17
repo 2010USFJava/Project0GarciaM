@@ -13,6 +13,7 @@ public class Login {
 	
 	public static EmployeeDao emp = new EmployeeDaoImpl();
 	public static CustomerDao cus = new CustomerDaoImpl();
+	
 	public static int currentBankAccount = 0;
 	public static int currentEmployee = 0;
 	public static int currentCustomer = 0;

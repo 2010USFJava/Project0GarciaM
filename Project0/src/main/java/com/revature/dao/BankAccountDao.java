@@ -22,5 +22,11 @@ public interface BankAccountDao {
 	public int findBankAccountbyUserBankID(int bankID) throws SQLException;
 	
 	public void deleteBankAccount(int bankID) throws SQLException;
+	
+	public int getTransactionCount()throws SQLException;
+	
+	public void addTransactionCount(int bankID) throws SQLException;
+	
+	public void editBankAccount(BankAccount account) throws SQLException;
 
 }
